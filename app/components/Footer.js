@@ -17,37 +17,35 @@ const Footer = () => {
   const [message, setMessage] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // Contact Form 7 form ID
-      const formId = "94de352";
-
       const response = await fetch(
-        `https://costaricaninsurance.com/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`,
+        "https://costaricaninsurance.com/wp-json/mailchimp-for-wp/v1/subscribe",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            "your-email": email, // your CF7 email field name
+            EMAIL: email, // Mailchimp requires this exact key
           }),
         }
       );
-      console.log(response, "res");
+
       const data = await response.json();
+      console.log(data, "mailchimp response");
 
-      if (!response.ok || data.status === "validation_failed") {
-        throw new Error(data.message || "Failed to subscribe");
+      if (response.ok && data.success) {
+        setMessage("Thank you for subscribing!");
+        setEmail("");
+      } else {
+        throw new Error(data.msg || "Subscription failed.");
       }
-
-      setMessage("Thank you for subscribing!");
-      setEmail("");
     } catch (err) {
       console.error(err);
       setMessage("Subscription failed. Please try again.");
     }
   };
+
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   try {
