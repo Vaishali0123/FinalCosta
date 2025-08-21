@@ -140,7 +140,7 @@ export default function InsuranceNewsSection({
           {/* Background glow */}
           <div className="absolute top-0 left-0 w-96 h-96 bg-orange-200/40 rounded-full opacity-50 blur-3xl" />
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-semibold text-center mb-6 text-gray-800">
+            <h2 className="text-3xl md:text-4xl dark:text-gray-100 font-semibold text-center mb-6 text-gray-800">
               {heading}
             </h2>
 
@@ -153,7 +153,7 @@ export default function InsuranceNewsSection({
                 {/* Main blog card */}
                 <div
                   key={animationKey}
-                  className="flex-1 bg-white p-3 rounded-3xl shadow-[-6px_4px_41.5px_0px_#FFF8E9] flex flex-col blog-card-animate"
+                  className="flex-1 bg-white p-3 rounded-3xl shadow-[-6px_4px_41.5px_0px_#FFF8E9] dark:shadow-none flex flex-col blog-card-animate"
                 >
                   <div className="relative w-full lg:w-[35.5rem] h-64 sm:h-80 lg:h-[60%] p-4 rounded-2xl overflow-hidden mb-3">
                     {activeBlog?.featuredImage?.node?.sourceUrl ? (
@@ -163,7 +163,7 @@ export default function InsuranceNewsSection({
                         className="absolute object-cover inset-0 w-full h-full"
                       />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-500 text-sm">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-800 dark:text-gray-200 text-gray-500 text-sm">
                         No image available
                       </div>
                     )}
@@ -189,16 +189,16 @@ export default function InsuranceNewsSection({
                         key={index}
                         className={`p-4 cursor-pointer transition-all duration-200 ${
                           blog?.id === activeBlog?.id
-                            ? "bg-orange-100/70 border rounded-[15px] scale-95 pl-2 border-orange-300"
-                            : "hover:bg-gray-50 border-b rounded-[4px] border-gray-200/60"
+                            ? "bg-orange-100/70 dark:bg-orange-100/50 border rounded-[15px] scale-95 pl-2 border-orange-300"
+                            : "hover:bg-gray-50 hover:dark:bg-gray-800 border-b rounded-[4px] border-gray-200/60"
                         }`}
                         onClick={() => setActiveBlog(translatedData[index])}
                       >
-                        <div className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                        <div className="flex items-center gap-2 text-sm font-semibold text-gray-800 dark:text-gray-100 ">
                           {blog?.icon || icons[blog?.iconName]}
                           {blog?.title}
                         </div>
-                        <p className="text-gray-600 text-sm mt-1">
+                        <p className="text-gray-600 text-sm mt-1 dark:text-gray-100">
                           {blog?.description || "..."}
                         </p>
                       </div>

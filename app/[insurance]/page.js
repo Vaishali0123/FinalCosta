@@ -140,12 +140,12 @@ export default function Page() {
   return (
     <>
       <div className="bg-white min-h-screen">
-        <main className="max-w-7xl  mx-auto px-4 py-6">
+        <main className="max-w-7xl  mx-auto  px-4 py-6">
           {randomTop === 0 && <BlogHome />}
           {randomTop === 1 && <HeadSection />}
           {randomTop === 2 && <Banner />}
 
-          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-1">
+          <div className="grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-1">
             {loading
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div
@@ -178,6 +178,7 @@ export default function Page() {
                       post?.featuredImage?.node?.sourceUrl ||
                       "/images/default.png"
                     }
+                    latestposts={blog?.posts?.nodes}
                     content={post?.content}
                     description={stripHtml(post.content).slice(0, 120) + "..."}
                   />

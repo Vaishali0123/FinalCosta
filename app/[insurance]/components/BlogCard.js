@@ -13,6 +13,7 @@ const BlogCard = ({
   shares = "1K shares",
   authorAvatar = "/images/avatar.png",
   postid,
+  latestposts,
 }) => {
   /** === Responsive Styles === */
   const cardStyle = {
@@ -101,12 +102,28 @@ const BlogCard = ({
   const contentStyle = {
     padding: "16px",
   };
-  console.log(content, "lo");
   return (
     <Link
+      onClick={() => {
+        sessionStorage.setItem(
+          "blogContent",
+          JSON.stringify({
+            content,
+            title,
+            postid,
+            image,
+            latestposts,
+          })
+        );
+      }}
       href={{
         pathname: "/blog",
-        query: { content: content, title: title, postid: postid, image: image },
+        query: {
+          content: content,
+          title: title,
+          postid: postid,
+          image: image,
+        },
       }}
       style={cardStyle}
       onMouseEnter={(e) => {

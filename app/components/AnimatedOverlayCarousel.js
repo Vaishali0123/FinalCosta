@@ -7,16 +7,15 @@ import Image from "next/image";
 
 const images = [
   {
-    src: { Car },
+    src: "/cars.jpg",
   },
   {
-    src: { Lifes },
+    src: "/lifes.jpg",
   },
   {
-    src: { Education },
+    src: "/education.jpg",
   },
 ];
-
 function calculateGap(width) {
   const minWidth = 1024;
   const maxWidth = 1456;

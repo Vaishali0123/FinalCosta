@@ -78,8 +78,12 @@ const InsuranceCard = ({
   return (
     <div
       className={`relative w-full max-w-[320px] min-h-[22rem] overflow-hidden border p-4 
-      hover:shadow-md hover:bg-black active:bg-black group transition-all duration-200
-      ${isFeatured ? "border-gray-200" : "border-gray-200"}`}
+      hover:shadow-md hover:bg-black dark:bg-black hover:dark:bg-white active:bg-black active:dark:bg-white group transition-all duration-200
+      ${
+        isFeatured
+          ? "border-gray-200 dark:border-gray-700"
+          : "border-gray-200 dark:border-gray-700"
+      }`}
     >
       {/* Glow */}
       <div className="h-[50px] absolute w-[50px] bg-amber-300 blur-2xl rounded-full bottom-0 right-0"></div>
@@ -110,8 +114,8 @@ const InsuranceCard = ({
           <h3
             className={`text-lg font-medium ${
               isFeatured
-                ? "text-gray-900 group-hover:text-white"
-                : "text-gray-900 group-hover:text-white"
+                ? "text-gray-900 dark:text-gray-200 group-hover:text-white group-hover:dark:text-black"
+                : "text-gray-900 dark:text-gray-200 group-hover:text-white group-hover:dark:text-black"
             }`}
           >
             {title}
@@ -119,8 +123,8 @@ const InsuranceCard = ({
           <p
             className={`text-sm mt-1 ${
               isFeatured
-                ? "text-gray-600 group-hover:text-white"
-                : "text-gray-600 group-hover:text-white"
+                ? "text-gray-600 dark:text-gray-200 group-hover:dark:text-black group-hover:text-white"
+                : "text-gray-600 dark:text-gray-200 group-hover:dark:text-black group-hover:text-white"
             }`}
           >
             {description}
@@ -128,7 +132,7 @@ const InsuranceCard = ({
         </div>
         <a
           href="#"
-          className="group-hover:text-[#FEB117] text-sm font-medium hover:underline"
+          className="group-hover:text-[#FEB117] group-hover:dark:text-[#e8a114] dark:text-white text-sm font-medium hover:underline"
         >
           {learnMoreText}
         </a>
@@ -234,12 +238,14 @@ export default function InsuranceTypes() {
         {/* Heading */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           <h2
-            className="text-2xl sm:text-3xl lg:text-[36px] font-normal text-gray-800 max-w-md"
+            className="text-2xl sm:text-3xl lg:text-[36px] font-normal text-gray-800 dark:text-gray-100 max-w-md"
             style={{ fontFamily: "Marcellus" }}
           >
             {heading}
           </h2>
-          <p className="text-base text-gray-500 max-w-xl">{description}</p>
+          <p className="text-base text-gray-500 max-w-xl dark:text-gray-200">
+            {description}
+          </p>
         </div>
 
         {/* Cards */}

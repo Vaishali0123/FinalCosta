@@ -11,6 +11,7 @@ import { HiX } from "react-icons/hi";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { GET_HERO_AND_STATS, graphQLClient } from "../lib/utils";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const HeaderPage = () => {
   const [showInsuranceMenu, setShowInsuranceMenu] = useState(false);
@@ -74,7 +75,7 @@ const HeaderPage = () => {
     { href: "#", label: "Insurance", id: "insurance" },
     { href: "/mortgages", label: "Mortgages", id: "mortgages" },
     { href: "../about-us", label: "About Us", id: "about" },
-    // { href: "/contactus", label: "Contact" },
+    { href: "/contactus", label: "Contact", id: "contact" },
   ]);
 
   const handleInputChange = (e) => {
@@ -145,7 +146,7 @@ const HeaderPage = () => {
         { href: "/", label: insurance, id: "insurance" },
         { href: "/mortgages", label: mortgages, id: "mortgages" },
         { href: "../about-us", label: aboutus, id: "about" },
-        // { href: "/contactus", label: contact },
+        { href: "/contactus", label: contact, id: "contact" },
       ]);
     }
 
@@ -164,7 +165,7 @@ const HeaderPage = () => {
         </div>
 
         {/* nav  */}
-        <div className="flex  pn:max-sm:flex-col pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-20 pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-4 pn:max-sm:bg-white">
+        <div className="flex  pn:max-sm:flex-col pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-20 pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-5 pn:max-sm:bg-white">
           {navLinks.map(({ href, label, id }) =>
             id === "insurance" ? (
               <div
@@ -185,10 +186,10 @@ const HeaderPage = () => {
                     setActiveType(null);
                   }
                 }}
-                className="relative  text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] transition-colors "
+                className="relative   text-gray-600  font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] hover:dark:text-[#fff] transition-colors "
               >
                 <span
-                  className={`cursor-pointer text-gray-700 ${
+                  className={`cursor-pointer dark:text-[#fff] text-gray-700 ${
                     showInsuranceMenu && "border-b-1"
                   }  `}
                 >
@@ -252,7 +253,7 @@ const HeaderPage = () => {
               <Link
                 key={label}
                 href={href}
-                className="text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] transition-colors "
+                className="text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] hover:dark:text-[#fff] transition-colors "
               >
                 {label}
               </Link>
@@ -300,9 +301,9 @@ const HeaderPage = () => {
             className="w-[40px] h-[40px] rounded-full border flex items-center justify-center dark:text-white pn:max-sm:hidden"
           >
             {dark ? (
-              <FaRegMoon className="w-[20px] h-[20px]" />
+              <MdOutlineDarkMode size={14} className="w-[20px] h-[20px]" />
             ) : (
-              <CiSun className="w-[30px] h-[30px]" />
+              <MdOutlineLightMode className="w-[25px] h-[25px]" />
             )}
           </button>
           {/* <Link

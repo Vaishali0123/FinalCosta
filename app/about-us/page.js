@@ -1,0 +1,350 @@
+import {
+  Shield,
+  Users,
+  CheckCircle,
+  FileText,
+  Globe,
+  Heart,
+  Home,
+  PlaneTakeoff,
+  GraduationCap,
+  PawPrint,
+  TruckIcon,
+  MapPin,
+} from "lucide-react";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import GraphicElements from "../components/GraphicElements";
+import Link from "next/link";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen  relative overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        {/* <HeroBackground /> */}
+        {/* <FloatingCards /> */}
+        <GraphicElements />
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-block mb-4">
+              <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg animate-pulse">
+                Trusted by Costa Rica
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-[marcellus] font-extrabold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-gray-900 via-gray-800 to-orange-700 bg-clip-text text-transparent">
+              Protecting What Matters in
+              <span className="block text-orange-600 font-[marcellus] animate-pulse">
+                Costa Rica
+              </span>
+            </h2>
+
+            <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto opacity-90">
+              Simple, clear, and accessible insurance guidance for residents,
+              expats, students, and travelers
+            </p>
+
+            <Link
+              href={"/contactus"}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-4 border-2 rounded-full border-orange-600 text-orange-600 hover:bg-orange-50 text-base font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+              >
+                Contact us
+              </Button>
+            </Link>
+
+            {/* <AnimatedStats /> */}
+          </div>
+        </div>
+      </section>
+
+      {/* Key Benefits */}
+      <section className="py-16 bg-white/50 backdrop-blur-sm relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold font-[marcellus] text-gray-900 mb-4 bg-gradient-to-r from-gray-900 to-orange-700 bg-clip-text text-transparent">
+              Why Choose Us?
+            </h3>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto">
+              No sales pressure. No jargon. Just real guidance to help you make
+              confident decisions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Independent & Unbiased",
+                description:
+                  "We're not tied to any insurance company. Our recommendations are based solely on what's best for you.",
+                gradient: "from-orange-500 to-red-500",
+              },
+              {
+                icon: Globe,
+                title: "Costa Rica Experts",
+                description:
+                  "Local knowledge meets international standards. We understand both expat needs and local requirements.",
+                gradient: "from-orange-500 to-yellow-500",
+              },
+              {
+                icon: CheckCircle,
+                title: "Plain English",
+                description:
+                  "We translate complex insurance terms into clear, actionable guidance you can actually understand.",
+                gradient: "from-orange-500 to-pink-500",
+              },
+            ].map((benefit, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50/30 backdrop-blur-sm group overflow-hidden relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-orange-50/20 to-orange-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 text-center relative z-10">
+                  <div
+                    className={`h-16 w-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${benefit.gradient} p-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <benefit.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-4 font-[marcellus] text-gray-900">
+                    {benefit.title}
+                  </h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <div className="">
+        <section
+          id="about"
+          className="py-16 bg-gradient-to-br scale-95 rounded-4xl from-orange-50 via-white to-orange-100/50 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute top-10 right-10 w-32 h-32 border-4 border-orange-300 rounded-full animate-spin"
+              style={{ animationDuration: "15s" }}
+            ></div>
+            <div className="absolute bottom-20 left-20 w-24 h-24 border-4 border-orange-400 rotate-45 animate-pulse"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 className="text-4xl font-bold mb-6 font-[marcellus] bg-gradient-to-r from-gray-900 to-orange-700 bg-clip-text text-transparent">
+                About CostaRicanInsurance.com
+              </h3>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                We make protecting what matters simple, clear, and accessible,
+                whether you're a local resident, expat, student, or traveler in
+                Costa Rica.
+              </p>
+              <p className="text-base text-gray-600 mb-10 leading-relaxed">
+                We're an independent resource and comparison platform created to
+                help you understand, evaluate, and secure the right insurance
+                coverage, from tuition, travel, and medical policies to
+                valuables, pet, moving, and home insurance.
+              </p>
+
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-orange-200/50 hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-orange-500/5"></div>
+                <h4 className="text-2xl font-bold font-[marcellus] text-orange-600 mb-4 relative z-10">
+                  Our Mission
+                </h4>
+                <p className="text-base text-gray-700 leading-relaxed relative z-10">
+                  To empower individuals and families in Costa Rica with
+                  transparent, unbiased information about insurance options, so
+                  you can make confident decisions with no pressure or
+                  confusion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Services Section */}
+      <section id="services" className="py-16 bg-white/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl font-bold font-[marcellus] text-gray-900 mb-3">
+              What We Offer
+            </h3>
+            <p className="text-lg text-gray-600">
+              Your trusted insurance translator, helping you navigate policies
+              and providers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
+            <Card className="hover:shadow-md transition-shadow duration-300 rounded-3xl border border-gray-200">
+              <CardContent className="p-5">
+                <FileText className="h-6 w-6 text-orange-600 mb-2" />
+                <h4 className="text-base font-semibold mb-2 text-gray-900">
+                  Expert Guides & Checklists
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Expertly written guides for real-life insurance questions and
+                  situations.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow duration-300 rounded-3xl border border-gray-200">
+              <CardContent className="p-5">
+                <Users className="h-6 w-6 text-orange-600 mb-2" />
+                <h4 className="text-base font-semibold mb-2 text-gray-900">
+                  Provider Comparisons
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Side-by-side comparisons with up-to-date info for Costa Rica.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow duration-300 rounded-3xl border border-gray-200">
+              <CardContent className="p-5">
+                <CheckCircle className="h-6 w-6 text-orange-600 mb-2" />
+                <h4 className="text-base font-semibold mb-2 text-gray-900">
+                  Claim Filing Tips
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Coverage breakdowns and cost-saving insights when you need
+                  them most.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow duration-300 rounded-3xl border border-gray-200">
+              <CardContent className="p-5">
+                <MapPin className="h-6 w-6 text-orange-600 mb-2" />
+                <h4 className="text-base font-semibold mb-2 text-gray-900">
+                  Localized Advice
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Specialized guidance for expats and locals navigating Costa
+                  Rica's system.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow duration-300 rounded-3xl border border-gray-200">
+              <CardContent className="p-5">
+                <FileText className="h-6 w-6 text-orange-600 mb-2" />
+                <h4 className="text-base font-semibold mb-2 text-gray-900">
+                  Free Tools
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Worksheets, downloadable PDFs, and checklists to guide your
+                  decisions.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-md transition-shadow duration-300 rounded-3xl border border-gray-200">
+              <CardContent className="p-5">
+                <Globe className="h-6 w-6 text-orange-600 mb-2" />
+                <h4 className="text-base font-semibold mb-2 text-gray-900">
+                  Bilingual Support
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Clear guidance in both English and Spanish for maximum
+                  accessibility.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Help Section */}
+      <section
+        id="who-we-help"
+        className="py-16 bg-gradient-to-r from-gray-50 to-orange-50/30"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl font-[marcellus] font-bold text-gray-900 mb-3">
+              Who We Help
+            </h3>
+            <p className="text-lg text-gray-600">
+              Whether you're new to Costa Rica or have lived here for years,
+              we're here for you
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card className="text-center hover:shadow-md rounded-3xl hover:bg-orange-400 h-fit group transition-all duration-300 hover:-translate-y-1 border border-gray-200">
+              <CardContent className="p-5">
+                <PlaneTakeoff className="h-10 w-10 group-hover:text-white text-orange-600 mx-auto mb-3" />
+                <h4 className="text-base font-semibold mb-2 group-hover:text-white text-gray-900">
+                  Expats Relocating
+                </h4>
+                <p className="text-sm group-hover:text-white text-gray-600">
+                  New to Costa Rica and need comprehensive coverage guidance.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-md rounded-3xl hover:bg-orange-400 h-fit group mt-10 transition-all duration-300 hover:-translate-y-1 border border-gray-200">
+              <CardContent className="p-5">
+                <GraduationCap className="h-10 w-10 group-hover:text-white text-orange-600 mx-auto mb-3" />
+                <h4 className="text-base font-semibold mb-2 group-hover:text-white text-gray-900">
+                  Families & Students
+                </h4>
+                <p className="text-sm group-hover:text-white text-gray-600">
+                  Parents with children in private schools or language programs.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-md rounded-3xl hover:bg-orange-400 h-fit group mt-20 transition-all duration-300 hover:-translate-y-1 border border-gray-200">
+              <CardContent className="p-5">
+                <Home className="h-10 w-10 group-hover:text-white text-orange-600 mx-auto mb-3" />
+                <h4 className="text-base font-semibold mb-2 group-hover:text-white text-gray-900">
+                  Homeowners & Renters
+                </h4>
+                <p className="text-sm group-hover:text-white text-gray-600">
+                  Protecting your property, valuables, and beloved pets.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-md rounded-3xl  hover:bg-orange-400 h-fit group mt-32 transition-all duration-300 hover:-translate-y-1 border border-gray-200">
+              <CardContent className="p-5">
+                <Globe className="h-10 w-10 group-hover:text-white text-orange-600 mx-auto mb-3" />
+                <h4 className="text-base font-semibold mb-2 group-hover:text-white text-gray-900">
+                  Digital Nomads
+                </h4>
+                <p className="text-sm group-hover:text-white text-gray-600">
+                  Long-term travelers seeking flexible, comprehensive coverage.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-base text-gray-700 font-medium">
+              Anyone looking for clarity and peace of mind.
+            </p>
+            <p className="text-lg text-orange-600 font-bold mt-2">
+              If it matters to you, we'll help you insure it — the smart way.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Index;

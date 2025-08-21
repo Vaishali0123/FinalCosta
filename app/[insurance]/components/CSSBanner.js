@@ -5,7 +5,7 @@ import Bg from "../../../public/BGs.png";
 const Banner = () => {
   return (
     <div
-      className="relative flex items-center h-[50vh] min-h-[260px] max-h-[450px] mb-8 rounded-[30px] overflow-hidden bg-cover bg-center bg-no-repeat"
+      className="relative flex  items-center h-[50vh] min-h-[260px] max-h-[450px] mb-8 rounded-[30px] overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${Bg.src})` }}
     >
       {/* Overlay */}

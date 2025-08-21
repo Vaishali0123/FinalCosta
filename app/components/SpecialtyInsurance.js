@@ -141,7 +141,7 @@ const SpecialtyInsurance = () => {
         <h2 className="text-3xl md:text-4xl text-[#656565] font-[Marcellus] mb-2">
           {heading}
         </h2>
-        <p className="text-[#424242] text-base md:text-lg">{description}</p>
+        <p className="text-[#424242]  text-base md:text-lg">{description}</p>
       </div>
 
       {/* Cards Grid */}

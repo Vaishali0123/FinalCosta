@@ -93,7 +93,7 @@ const PopularBlogs = ({ mortgagesdata }) => {
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold font-[marcellus] mb-2">{heading}</h2>
-        <p className="text-gray-600 text-lg">{subHeading}</p>
+        <p className="text-gray-600 text-lg dark:text-gray-300">{subHeading}</p>
       </div>
 
       {/* Blog Section */}
@@ -104,10 +104,10 @@ const PopularBlogs = ({ mortgagesdata }) => {
             <img
               src={displayData?.[0]?.featuredImage?.node?.sourceUrl}
               alt={displayData?.[0]?.title}
-              className="w-full h-[200px] lg:h-2/3 object-cover"
+              className="w-full dark:text-gray-300 h-[200px] lg:h-2/3 object-cover"
             />
             <div className="p-4 flex flex-col justify-between flex-grow">
-              <h3 className="text-[24px] lg:text-[28px] font-[marcellus] font-bold text-gray-900 mb-3 break-words">
+              <h3 className="text-[24px] lg:text-[28px] font-[marcellus] font-bold text-gray-900 dark:text-gray-100 mb-3 break-words">
                 {displayData?.[0]?.title}
               </h3>
               <div className="flex justify-between items-center text-sm text-gray-600 mt-auto">
@@ -128,7 +128,7 @@ const PopularBlogs = ({ mortgagesdata }) => {
         {/* Right Column: Two Cards */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8">
           {/* Card 1 */}
-          <div className="flex flex-col lg:flex-row bg-gray-50 rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
+          <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-900 rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
             {/* Image */}
             <div className="w-full lg:w-[40%] h-[200px] lg:h-full">
               <img
@@ -139,10 +139,10 @@ const PopularBlogs = ({ mortgagesdata }) => {
             </div>
             {/* Text */}
             <div className="w-full lg:w-[60%] p-4 flex flex-col justify-between">
-              <h3 className="text-[24px] lg:text-[30px] font-bold font-[marcellus] text-gray-900 mb-3 break-words">
+              <h3 className="text-[24px] lg:text-[30px] font-bold font-[marcellus] text-gray-900 dark:text-gray-100 mb-3 break-words">
                 {displayData?.[1]?.title}
               </h3>
-              <div className="flex justify-between items-center text-sm text-gray-600 mt-auto">
+              <div className="flex justify-between items-center text-sm text-gray-600 dark:text-gray-300 mt-auto">
                 {/* <div className="flex items-center gap-2">
                   <img
                     src="/blog/card2logo.png"
@@ -157,7 +157,7 @@ const PopularBlogs = ({ mortgagesdata }) => {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col lg:flex-row bg-gray-50 rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
+          <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-900 rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
             {/* Image */}
             <div className="w-full lg:w-[40%] h-[200px] lg:h-full">
               <img
@@ -168,10 +168,10 @@ const PopularBlogs = ({ mortgagesdata }) => {
             </div>
             {/* Text */}
             <div className="w-full lg:w-[60%] p-4 flex flex-col justify-between">
-              <h3 className="text-[24px] lg:text-[30px] font-bold font-[marcellus] text-gray-900 mb-3 break-words">
+              <h3 className="text-[24px] lg:text-[30px] font-bold font-[marcellus] text-gray-900  dark:text-gray-100 mb-3 break-words">
                 {displayData?.[2]?.title}
               </h3>
-              <div className="flex justify-between items-center text-sm text-gray-600 mt-auto">
+              <div className="flex justify-between items-center text-sm text-gray-600 dark:text-gray-300 mt-auto">
                 {/* <div className="flex items-center gap-2">
                   <img
                     src={mortgagesdata?.[2]?.featuredImage?.node?.sourceUrl}
@@ -193,7 +193,7 @@ const PopularBlogs = ({ mortgagesdata }) => {
             sessionStorage.setItem("selectedType", JSON.stringify(mortgage));
             router.push("/mortgages");
           }}
-          className="bg-yellow-400 mt-2 cursor-pointer hover:bg-yellow-300 text-black font-semibold px-10 py-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl"
+          className="bg-yellow-400 dark:bg-yellow-800 mt-2 cursor-pointer hover:bg-yellow-300 hover:dark:bg-yellow-700 text-black dark:text-white font-semibold px-10 py-3 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl"
         >
           {viewMoreText}
         </button>

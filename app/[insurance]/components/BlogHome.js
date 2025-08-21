@@ -13,7 +13,7 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 
 const Home = () => {
   return (
-    <div className="relative">
+    <div className="relative ">
       <div
         style={{ backgroundImage: `url(${Vitual.src})` }}
         className="relative bg-cover bg-center overflow-hidden"

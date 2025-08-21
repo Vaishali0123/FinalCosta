@@ -591,8 +591,8 @@ export default function Hero() {
                     className={`flex h-11 items-center font-[Marcellus] whitespace-nowrap rounded-full border px-5 font-semibold transition-all duration-300
                 ${
                   activeIndex === index
-                    ? "scale-105 dark:bg-[#191919] border-transparent bg-[#191919] bg-transparent text-[#fff]"
-                    : "border-transparent dark:bg-[#fff] bg-[#f6f6f6] text-gray-700 hover:bg-[#191919] hover:text-white"
+                    ? "scale-105 dark:bg-[#191919] border-transparent bg-[#191919] bg-transparent text-[#000] dark:text-[#fff]"
+                    : "border-transparent dark:bg-[#fff] bg-[#f6f6f6]  text-gray-700 hover:bg-[#191919] hover:text-white hover:dark:text-black"
                 }`}
                   >
                     {label}
@@ -605,7 +605,7 @@ export default function Hero() {
                 ${
                   activeIndex === index
                     ? "scale-105 dark:bg-[#191919] border-transparent bg-[#191919] bg-transparent text-[#fff]"
-                    : "border-transparent dark:bg-[#fff] bg-[#f6f6f6] text-gray-700 hover:bg-[#191919] hover:text-white"
+                    : "border-transparent dark:bg-[#fff] bg-[#f6f6f6] text-gray-700 hover:bg-[#191919] hover:text-white hover:dark:text-black"
                 }`}
                   >
                     {label}
@@ -631,12 +631,12 @@ export default function Hero() {
               Array.from({ length: isMobile ? 2 : 3 }).map((_, i) => (
                 <div
                   key={i}
-                  className="animate-pulse flex flex-col overflow-hidden rounded-2xl bg-white w-full sm:w-[48%] md:w-[31%]"
+                  className="animate-pulse flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-black w-full sm:w-[48%] md:w-[31%]"
                 >
-                  <div className="aspect-video bg-gray-800 w-full rounded-[6.9%]"></div>
+                  <div className="aspect-video bg-gray-800 dark:bg-gray-200 w-full rounded-[6.9%]"></div>
                   <div className="flex flex-grow flex-col justify-between p-5">
-                    <div className="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
-                    <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+                    <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-3/4 mb-2"></div>
+                    <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-1/2"></div>
                   </div>
                 </div>
               ))
@@ -660,9 +660,9 @@ export default function Hero() {
                       },
                     }}
                     key={stat?.title}
-                    className="flex pn:max-sm:h-[500px] bg-white flex-col overflow-hidden rounded-t-3xl group w-full sm:w-[48%] md:w-[31%]"
+                    className="flex pn:max-sm:h-[500px] bg-white dark:bg-black flex-col overflow-hidden rounded-t-3xl group w-full sm:w-[48%] md:w-[31%]"
                   >
-                    <div className="aspect-video  h-[29.5vh] bg-red-800 w-full">
+                    <div className="aspect-video  h-[29.5vh]  w-full">
                       <img
                         src={
                           stat?.featuredImage?.node?.sourceUrl ||
@@ -678,7 +678,7 @@ export default function Hero() {
                       </h3>
                       <div className="mt-3 flex items-center group-hover:ml-4 duration-200 group-hover:bg-[#191919] group-hover:text-white rounded-2xl py-2 px-4 justify-center w-fit text-gray-500">
                         <FaArrowRight className=" h-4 w-4" />
-                        <span>Read it!!</span>
+                        {/* <span>Read it!!</span> */}
                       </div>
                     </div>
                   </Link>

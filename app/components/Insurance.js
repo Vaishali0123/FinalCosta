@@ -92,7 +92,7 @@ const initialInsuranceData = {
       "Car insurance protects you financially against accidents, theft, or damage to your vehicle. It typically covers liability, repairs, medical costs, and legal expenses. Policies may include third-party, comprehensive, or collision coverage. It's legally required in most places and ensures safer driving with peace of mind.",
     subDescription:
       "Discover the most appropriate fit for you and your Family.",
-    image: "/car.jpg",
+    image: "/cars.jpg",
     data: null,
   },
   life: {
@@ -100,7 +100,7 @@ const initialInsuranceData = {
     description:
       "Life insurance provides financial support to your loved ones after your death. It pays out a lump sum (death benefit) to the chosen beneficiaries. Policies can help cover debts, daily expenses, or future goals like education. It ensures your family's financial stability in your absence.",
     subDescription: "Choose a policy that grows with your life's milestones.",
-    image: "/life.jpg",
+    image: "/lifes.jpg",
     data: null,
   },
   pet: {
@@ -376,20 +376,22 @@ const Insurance = () => {
               key={textAnimationKey}
               className="flex-1 max-w-md text-center pn:max-sm:text-left lg:text-left text-content-animate"
             >
-              <h2 className="sm:text-4xl text-[23px] font-[Marcellus] font-semibold text-gray-800">
+              <h2 className="sm:text-4xl text-[23px] font-[Marcellus] font-semibold text-gray-800 dark:text-gray-100">
                 {data.title}
               </h2>
-              <p className="mt-6 text-[13px] text-gray-600">
+              <p className="mt-6 text-[13px] text-gray-600 dark:text-gray-100">
                 {data.description}
               </p>
-              <p className="mt-4 text-gray-500">{data.subDescription}</p>
+              <p className="mt-4 text-gray-500 dark:text-gray-100">
+                {data.subDescription}
+              </p>
               <button
                 onClick={handleNavigate}
                 disabled={!isDataLoaded || !data.data}
-                className={`mt-8 h-12 w-12 rounded-full text-white flex items-center justify-center transition ${
+                className={`mt-8 h-12 w-12 rounded-full text-white dark:text-gray-800 flex items-center justify-center transition ${
                   !isDataLoaded || !data.data
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gray-900 hover:scale-110"
+                    ? "bg-gray-400 dark:bg-gray-300 cursor-not-allowed"
+                    : "bg-gray-900 hover:scale-110 dark:bg-gray-100"
                 }`}
               >
                 <FaAngleRight />
@@ -404,7 +406,7 @@ const Insurance = () => {
             <div className="absolute -top-[70px] pn:max-sm:hidden -left-[50px] w-[376px] h-[277px] bg-orange-100/50 rounded-3xl z-0"></div>
             <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl z-10">
               <img
-                src={data.image}
+                src={rawData?.image}
                 alt={data?.title}
                 className="w-full h-auto object-cover rounded-2xl aspect-[4/3]"
                 loading="lazy"
