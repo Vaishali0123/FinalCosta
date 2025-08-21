@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import Logo from "../../app/assets/logo.png";
 import wordLogo from "../../app/assets/wordlogo.png";
 import Link from "next/link";
@@ -12,7 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { GET_HERO_AND_STATS, graphQLClient } from "../lib/utils";
 
-const Header = () => {
+const HeaderPage = () => {
   const [showInsuranceMenu, setShowInsuranceMenu] = useState(false);
   const [menuOpenedByClick, setMenuOpenedByClick] = useState(false);
   const [activeType, setActiveType] = useState(0);
@@ -435,5 +435,11 @@ const Header = () => {
     </div>
   );
 };
-
+const Header = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HeaderPage />
+    </Suspense>
+  );
+};
 export default Header;

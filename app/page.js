@@ -19,7 +19,7 @@
 
 // export default page;
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import Insurance from "./components/Insurance";
 import News from "./components/InsuranceNewsSection";
@@ -31,7 +31,7 @@ import SpecialtyInsurance from "./components/SpecialtyInsurance";
 import InsuranceTypes from "./components/InsuranceTypes";
 import { GET_HERO_AND_STATS, graphQLClient } from "./lib/utils";
 
-const page = () => {
+const Page = () => {
   const [reviewdata, setReviewdata] = useState([]);
   const [mortgagesdata, setMortgagesdata] = useState([]);
   const [insurancedata, setInsurancedata] = useState([]);
@@ -74,4 +74,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
