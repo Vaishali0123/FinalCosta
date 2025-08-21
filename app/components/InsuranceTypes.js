@@ -175,7 +175,7 @@ export default function InsuranceTypes() {
       );
 
       setTranslatedData(translatedCards);
-      setActiveBlog(translatedBlogs[0]);
+      //   setActiveBlog(translatedBlogs[0]);
     }
 
     doTranslation();

@@ -13,6 +13,9 @@ import { useLanguage } from "../context/LanguageContext";
 import { GET_HERO_AND_STATS, graphQLClient } from "../lib/utils";
 
 const Header = () => {
+  const [showInsuranceMenu, setShowInsuranceMenu] = useState(false);
+  const [menuOpenedByClick, setMenuOpenedByClick] = useState(false);
+  const [activeType, setActiveType] = useState(0);
   const [dark, setDark] = useState(false);
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
@@ -41,12 +44,12 @@ const Header = () => {
   ];
   const currentLang = languages.find((l) => l.code === language);
 
-  const switchLang = (lang) => {
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.set("lang", lang);
-    router.push(currentUrl.toString());
-    setOpen(false);
-  };
+  // const switchLang = (lang) => {
+  //   const currentUrl = new URL(window.location.href);
+  //   currentUrl.searchParams.set("lang", lang);
+  //   router.push(currentUrl.toString());
+  //   setOpen(false);
+  // };
   useEffect(() => {
     // Load saved theme
     if (localStorage.getItem("theme") === "dark") {
@@ -66,11 +69,11 @@ const Header = () => {
     }
   };
   const [navLinks, setNavLinks] = useState([
-    { href: "/", label: "Home" },
+    { href: "/", label: "Home", id: "home" },
 
-    { href: "/", label: "Insurance" },
-    { href: "/mortgages", label: "Mortgages" },
-    { href: "../about-us", label: "About Us" },
+    { href: "#", label: "Insurance", id: "insurance" },
+    { href: "/mortgages", label: "Mortgages", id: "mortgages" },
+    { href: "../about-us", label: "About Us", id: "about" },
     // { href: "/contactus", label: "Contact" },
   ]);
 
@@ -138,10 +141,10 @@ const Header = () => {
       const aboutus = await translateText("About Us", language);
       const contact = await translateText("Contact", language);
       setNavLinks([
-        { href: "/", label: home },
-        { href: "/", label: insurance },
-        { href: "/mortgages", label: mortgages },
-        { href: "../about-us", label: aboutus },
+        { href: "/", label: home, id: "home" },
+        { href: "/", label: insurance, id: "insurance" },
+        { href: "/mortgages", label: mortgages, id: "mortgages" },
+        { href: "../about-us", label: aboutus, id: "about" },
         // { href: "/contactus", label: contact },
       ]);
     }
@@ -162,15 +165,99 @@ const Header = () => {
 
         {/* nav  */}
         <div className="flex  pn:max-sm:flex-col pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-20 pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-4 pn:max-sm:bg-white">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] transition-colors "
-            >
-              {label}
-            </Link>
-          ))}
+          {navLinks.map(({ href, label, id }) =>
+            id === "insurance" ? (
+              <div
+                key={label}
+                onClick={() => {
+                  // Toggle popup on click
+                  setShowInsuranceMenu((prev) => !prev);
+                  setMenuOpenedByClick(true);
+                }}
+                onMouseEnter={() => {
+                  if (!menuOpenedByClick) {
+                    setShowInsuranceMenu(true);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (!menuOpenedByClick) {
+                    setShowInsuranceMenu(false);
+                    setActiveType(null);
+                  }
+                }}
+                className="relative  text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] transition-colors "
+              >
+                <span
+                  className={`cursor-pointer text-gray-700 ${
+                    showInsuranceMenu && "border-b-1"
+                  }  `}
+                >
+                  {label}
+                </span>
+
+                {/* Dropdown Mega Menu */}
+                {showInsuranceMenu && (
+                  <div
+                    className="fixed top-16 left-1/2 -translate-x-1/2 w-[90vw]   md:w-[80vw] max-w-6xl bg-white backdrop-blur-md bg-opacity-90 shadow-2xl border border-gray-200 rounded-xl p-6 flex flex-col md:flex-row gap-6 z-50 animate-fadeIn"
+                    onMouseLeave={() => {
+                      setShowInsuranceMenu(false);
+                      setActiveType(null);
+                    }}
+                  >
+                    {/* Left Column: Types */}
+                    <div className="w-full  md:w-1/3 space-y-2 overflow-y-auto max-h-[310px]">
+                      {insuranceTypes?.map((type, i) => (
+                        <div
+                          key={i}
+                          onClick={() => {
+                            sessionStorage.setItem(
+                              "selectedType",
+                              JSON.stringify(type)
+                            );
+                            router.push(`/${type?.slug}`);
+                          }}
+                          onMouseEnter={() => setActiveType(i)}
+                          className={`px-4 py-2 rounded-lg cursor-pointer text-sm font-medium transition-all duration-200 ${
+                            activeType === i
+                              ? "bg-[#ff7100] text-white"
+                              : "hover:bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {type?.name}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Right Column: Options */}
+                    <div className="w-full md:w-2/3">
+                      {activeType !== null && (
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                          {insuranceTypes?.[activeType]?.posts?.nodes?.map(
+                            (option, j) => (
+                              <li
+                                key={j}
+                                className="px-4 py-2 bg-gray-50 rounded-md hover:bg-[#f1cc94] hover:text-[#003366] transition cursor-pointer"
+                              >
+                                {option?.title}
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={label}
+                href={href}
+                className="text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] transition-colors "
+              >
+                {label}
+              </Link>
+            )
+          )}
         </div>
         {/* lang/darkMode/search  */}
         <div className="flex pn:max-sm:flex-col pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-20 pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-4 pn:max-sm:bg-white">

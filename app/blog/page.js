@@ -58,7 +58,6 @@ There are various types of medical insurance plans available, each with unique f
   const [message, setMessage] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
     // API call can go here
   };
 
@@ -98,7 +97,7 @@ There are various types of medical insurance plans available, each with unique f
       author_email: email,
       content: comment,
     };
-    console.log(payload, "payload");
+
     try {
       const res = await fetch(
         "https://admin.costaricaninsurance.com/wp-json/wp/v2/comments",

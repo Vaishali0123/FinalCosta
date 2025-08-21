@@ -15,27 +15,31 @@ import logo from "../assets/logo.png";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const formId = "123"; // Your WPForms newsletter form ID
+      // Contact Form 7 form ID
+      const formId = "94de352";
+
       const response = await fetch(
-        `https://admin.costaricaninsurance.com/wp-json/wpforms/v1/forms/${formId}/submissions`,
+        `https://costaricaninsurance.com/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            fields: {
-              1: email, // Your email field ID in the WPForms form
-            },
+            "your-email": email, // your CF7 email field name
           }),
         }
       );
+      console.log(response, "res");
+      const data = await response.json();
 
-      if (!response.ok) throw new Error("Failed to subscribe");
+      if (!response.ok || data.status === "validation_failed") {
+        throw new Error(data.message || "Failed to subscribe");
+      }
 
       setMessage("Thank you for subscribing!");
       setEmail("");
@@ -44,6 +48,34 @@ const Footer = () => {
       setMessage("Subscription failed. Please try again.");
     }
   };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const formId = "123"; // Your WPForms newsletter form ID
+  //     const response = await fetch(
+  //       `https://admin.costaricaninsurance.com/wp-json/wpforms/v1/forms/${formId}/submissions`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           fields: {
+  //             1: email, // Your email field ID in the WPForms form
+  //           },
+  //         }),
+  //       }
+  //     );
+
+  //     if (!response.ok) throw new Error("Failed to subscribe");
+
+  //     setMessage("Thank you for subscribing!");
+  //     setEmail("");
+  //   } catch (err) {
+  //     console.error(err);
+  //     setMessage("Subscription failed. Please try again.");
+  //   }
+  // };
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
