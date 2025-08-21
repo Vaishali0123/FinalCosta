@@ -128,7 +128,7 @@ const PopularBlogs = ({ mortgagesdata }) => {
         {/* Right Column: Two Cards */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8">
           {/* Card 1 */}
-          <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-900 rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
+          <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-black rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
             {/* Image */}
             <div className="w-full lg:w-[40%] h-[200px] lg:h-full">
               <img
@@ -157,7 +157,7 @@ const PopularBlogs = ({ mortgagesdata }) => {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-gray-900 rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
+          <div className="flex flex-col lg:flex-row bg-gray-50 dark:bg-black rounded-3xl overflow-hidden hover:scale-105 duration-150 w-full lg:h-[260px]">
             {/* Image */}
             <div className="w-full lg:w-[40%] h-[200px] lg:h-full">
               <img
