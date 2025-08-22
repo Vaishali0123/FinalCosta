@@ -156,15 +156,15 @@ export default function ArticleRenderer({ htmlContent }) {
         : null;
       if (node.name === "p") {
         return (
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 dark:text-white/90 mb-6">
             {domToReact(node.children, options)}
           </p>
         );
       }
       if (node.name === "h2") {
         return (
-          <div className="bg-gray-50 flex items-center rounded-lg p-4 mb-4">
-            <h3 className="text-2xl font-bold  text-gray-800 ">
+          <div className="bg-gray-50 dark:bg-white/10 flex items-center rounded-lg p-4 mb-4">
+            <h3 className="text-2xl font-bold dark:text-white/90  text-gray-800 ">
               {domToReact(node.children, options)}
             </h3>
           </div>
@@ -173,7 +173,7 @@ export default function ArticleRenderer({ htmlContent }) {
       if (node.name === "img") {
         return (
           <div className="relative mb-8">
-            <div className="bg-white rounded-2xl p-4">
+            <div className="bg-white dark:bg-white/10 rounded-2xl p-4">
               <img
                 src={node.attribs.src}
                 alt={node.attribs.alt || "Article image"}
@@ -186,7 +186,9 @@ export default function ArticleRenderer({ htmlContent }) {
           </div>
         );
       }
-      return <p className="text-gray-600 mb-6">{children}</p>;
+      return (
+        <p className="text-gray-600 dark:text-white/90 mb-6">{children}</p>
+      );
     },
   };
 

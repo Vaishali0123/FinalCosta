@@ -33,7 +33,7 @@ const Home = () => {
                   <MdOutlinePets className="text-orange-500 w-10 h-7" />
                 </div>
                 <div className="">
-                  <h3 className="text-lg font-semibold text-[#1C1C1E]">
+                  <h3 className="text-lg font-semibold  text-[#1C1C1E]">
                     Pet insurance
                   </h3>
                   <p className="text-xs text-gray-500">keep for friend safe</p>
@@ -136,12 +136,12 @@ const Home = () => {
       </div>
 
       <div className="absolute top-1/2 left-1/2 mt-8 transform -translate-x-1/2 -translate-y-[55%]">
-        <h1 className="text-center text-[50px] font-[Marcellus] font-bold text-[#1C1C1E] ">
+        <h1 className="text-center text-[50px] font-[Marcellus] dark:text-gray-200 font-bold text-[#1C1C1E] ">
           your true
           <br />
           insurance guide
         </h1>
-        <p className="text-center text-[16px] text-base text-gray-500 max-w-md mx-auto">
+        <p className="text-center text-[16px] text-base dark:text-gray-300 text-gray-500 max-w-md mx-auto">
           Virtual tour is a powerful tool to help you explore and better
           understand the insurance services
         </p>

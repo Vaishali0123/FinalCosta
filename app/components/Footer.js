@@ -119,7 +119,7 @@ const Footer = () => {
   }, [language]);
 
   // scrollTo({ top: 0, behavior: "smooth" });
-  scrollTo({ top: 0, behavior: "smooth" });
+  // scrollTo({ top: 0, behavior: "smooth" });
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();

@@ -124,7 +124,7 @@ export default function Page() {
         data?.categories?.nodes?.forEach((category) => {
           if (category?.slug === "insurance") {
             setCards(category?.children?.nodes);
-            // setBlog(category?.children?.nodes[0]);
+            setBlog(category?.children?.nodes[0]);
           }
         });
       } catch (error) {
@@ -139,7 +139,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="bg-white min-h-screen">
+      <div className="bg-white dark:bg-black/10 min-h-screen">
         <main className="max-w-7xl  mx-auto  px-4 py-6">
           {randomTop === 0 && <BlogHome />}
           {randomTop === 1 && <HeadSection />}
@@ -200,7 +200,6 @@ export default function Page() {
           {randomBottom === 0 && <FeaturedPost />}
           {randomBottom === 1 && <Banner2 />}
           {randomBottom === 2 && <ArticleCard />}
-          {/* <ArticleCard /> */}
         </main>
       </div>
     </>

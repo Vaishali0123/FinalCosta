@@ -45,12 +45,12 @@ const Contact = () => {
   return (
     <div
       style={{ backgroundImage: `url(${Map.src})` }}
-      className="min-h-screen  bg-gradient-to-b  bg-contain bg-no-repeat from-background to-muted/30 "
+      className="min-h-screen  bg-gradient-to-b  bg-contain bg-no-repeat from-background to-muted/30  dark:from-gray-900 dark:to-gray-800 "
     >
       <div className="absolute inset-0 bg-[#fff8ea] animate-pulse  top-[60%] left-[20%] rounded-2xl h-[20px] w-[20px]"></div>
       {/* Toast Notification */}
       {showToast && (
-        <div className="fixed top-4 right-4 z-50 bg-success text-success-foreground px-6 py-3 rounded-lg shadow-lg animate-in slide-in-from-right">
+        <div className="fixed top-4 right-4 z-50 bg-success text-success-foreground px-6 py-3 rounded-lg shadow-lg animate-in slide-in-from-right dark:bg-green-700 dark:text-white">
           <div className="flex items-center gap-2">
             <svg
               className="h-5 w-5"
@@ -68,7 +68,7 @@ const Contact = () => {
             <div>
               <p className="font-medium">Message sent successfully!</p>
               <p className="text-sm opacity-90">
-                We'll get back to you within 24 hours.
+                We&apos;ll get back to you within 24 hours.
               </p>
             </div>
           </div>
@@ -76,9 +76,9 @@ const Contact = () => {
       )}
 
       {/* Header Section */}
-      <div className="bg-gradient-to-r h-[300px] bg-center from-primary to-accent py-16">
+      <div className="bg-gradient-to-r h-[300px] bg-center from-primary to-accent py-16 dark:from-white/5 dark:to-white/10">
         <div className="container mx-auto px-4">
-          <div className="text-center text-primary-foreground">
+          <div className="text-center text-primary-foreground dark:text-white">
             <span className="inline-flex items-center gap-1 bg-white text-[#171717] border border-white/30 hover:bg-white/30 px-3 py-1 rounded-full text-sm font-medium mb-4">
               <svg
                 className="h-4 w-4"
@@ -95,11 +95,11 @@ const Contact = () => {
               </svg>
               Contact Support
             </span>
-            <h1 className="text-2xl md:text-3xl font-[Marcellus] font-bold mb-6">
+            <h1 className="text-2xl md:text-3xl font-[Marcellus] font-bold mb-6 dark:text-white">
               Get in Touch
             </h1>
-            <p className="text-[14px] md:text-[14px] max-w-3xl mx-auto opacity-90">
-              We're here to help you find the perfect insurance solution.
+            <p className="text-[14px] md:text-[14px] max-w-3xl mx-auto opacity-90 dark:text-gray-300">
+              We&apos;re here to help you find the perfect insurance solution.
               Contact our experts today for personalized assistance.
             </p>
           </div>
@@ -111,12 +111,12 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8">
             <div>
-              <h2 className="text-3xl font-bold  font-[Marcellus] mb-6">
+              <h2 className="text-3xl font-bold  font-[Marcellus] mb-6 dark:text-white">
                 Contact Information
               </h2>
-              <p className="text-muted-foreground mb-8">
-                Get in touch with our insurance experts. We're available 24/7 to
-                assist you with all your insurance needs.
+              <p className="text-muted-foreground mb-8 dark:text-gray-300">
+                Get in touch with our insurance experts. We&apos;re available
+                24/7 to assist you with all your insurance needs.
               </p>
             </div>
 
@@ -158,12 +158,12 @@ const Contact = () => {
                 </div>
               </div> */}
 
-              <div className="bg-white border border-slate-200 rounded-2xl border-l-4 border-l-[#f59f0a] hover:shadow-lg transition-all duration-300">
+              <div className="bg-white border dark:bg-white/10 dark:border-gray-800 border-slate-200 rounded-2xl border-l-4 border-l-[#f59f0a] hover:shadow-lg transition-all duration-300">
                 <div className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 p-3 bg-[#fef6ea] rounded-lg">
+                    <div className="bg-accent/10 p-3 bg-[#fef6ea] rounded-lg ">
                       <svg
-                        className="h-6 w-6 text-[#f59f0a] text-accent"
+                        className="h-6 w-6 text-[#f59f0a] text-accent dark:text-yellow-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -177,16 +177,16 @@ const Contact = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1">
+                      <h3 className="font-semibold text-lg mb-1 dark:text-white">
                         Email Support
                       </h3>
-                      <p className="text-muted-foreground mb-2">
+                      <p className="text-muted-foreground mb-2 dark:text-gray-300">
                         Send us an email
                       </p>
-                      <p className="font-medium text-[#f59f0a] text-primary">
+                      <p className="font-medium text-[#f59f0a] text-primary dark:text-yellow-400">
                         support@costaricainsurance.com
                       </p>
-                      <p className="font-medium text-[#f59f0a] text-primary">
+                      <p className="font-medium text-[#f59f0a] text-primary dark:text-yellow-400">
                         claims@costaricainsurance.com
                       </p>
                     </div>
@@ -273,13 +273,13 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2 ">
-            <div className="bg-white border border-slate-200 rounded-3xl">
+            <div className="bg-white border dark:bg-white/10 border-slate-200 dark:border-gray-700 rounded-3xl">
               <div className="p-8">
                 <div className="mb-8">
-                  <h2 className="text-3xl font-bold  font-[Marcellus] mb-4">
+                  <h2 className="text-3xl font-bold  font-[Marcellus] mb-4 dark:text-white">
                     Send us a Message
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground dark:text-gray-300">
                     Fill out the form below and our team will get back to you
                     within 24 hours.
                   </p>
@@ -288,7 +288,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block text-sm font-medium mb-2 dark:text-gray-200">
                         First Name *
                       </label>
                       <input
@@ -297,12 +297,12 @@ const Contact = () => {
                         value={formData.firstName}
                         onChange={handleInputChange}
                         placeholder="John"
-                        className="w-full h-12 px-3 py-2 bg-background border border-slate-200 rounded-2xl border-input  focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                        className="w-full h-12 px-3 py-2 bg-background   dark:text-white border dark:border-gray-600 dark:bg-white/20 border-slate-200 rounded-2xl border-input  focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block text-sm font-medium mb-2 dark:text-gray-200">
                         Last Name *
                       </label>
                       <input
@@ -311,7 +311,7 @@ const Contact = () => {
                         value={formData.lastName}
                         onChange={handleInputChange}
                         placeholder="Doe"
-                        className="w-full h-12 px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                        className="w-full h-12 px-3 py-2 bg-background border border-input dark:bg-white/20 dark:border-gray-600 dark:text-white border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                         required
                       />
                     </div>
@@ -319,7 +319,7 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block dark:text-gray-200 text-sm font-medium mb-2">
                         Email Address *
                       </label>
                       <input
@@ -328,12 +328,12 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="john.doe@example.com"
-                        className="w-full h-12 px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                        className="w-full h-12 px-3 py-2 dark:bg-white/20 dark:border-gray-600 dark:text-white bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block  dark:text-gray-200 text-sm font-medium mb-2">
                         Phone Number
                       </label>
                       <input
@@ -342,21 +342,21 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+1 (555) 123-4567"
-                        className="w-full h-12 px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                        className="w-full h-12 px-3 py-2 dark:bg-white/20 dark:border-gray-600 dark:text-white bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block dark:text-gray-200 text-sm font-medium mb-2">
                         Insurance Type
                       </label>
                       <select
                         name="insuranceType"
                         value={formData.insuranceType}
                         onChange={handleInputChange}
-                        className="w-full h-12 px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                        className="w-full h-12 px-3 dark:bg-white/20 dark:border-gray-600 dark:text-white py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                       >
                         <option value="">Select insurance type</option>
                         <option value="auto">Auto Insurance</option>
@@ -368,7 +368,7 @@ const Contact = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">
+                      <label className="block dark:text-gray-200 text-sm font-medium mb-2">
                         Subject *
                       </label>
                       <input
@@ -377,14 +377,14 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         placeholder="How can we help you?"
-                        className="w-full h-12 px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                        className="w-full h-12 px-3 py-2 dark:bg-white/20 dark:border-gray-600 dark:text-white bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                         required
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block dark:text-gray-200 text-sm font-medium mb-2">
                       Message *
                     </label>
                     <textarea
@@ -392,7 +392,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Please describe your inquiry in detail..."
-                      className="w-full min-h-[120px] px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
+                      className="w-full min-h-[120px] dark:bg-white/20 dark:border-gray-600 dark:text-white px-3 py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
                       required
                     />
                   </div>
@@ -412,10 +412,10 @@ const Contact = () => {
                       />
                     </svg>
                     <div className="text-sm text-muted-foreground">
-                      <p className="font-medium mb-1">
+                      <p className="font-medium mb-1 dark:text-white">
                         Your privacy is protected
                       </p>
-                      <p>
+                      <p className="dark:text-white">
                         We use industry-standard encryption to protect your
                         personal information and will never share your data with
                         third parties.

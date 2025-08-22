@@ -17,7 +17,6 @@ const BlogCard = ({
 }) => {
   /** === Responsive Styles === */
   const cardStyle = {
-    backgroundColor: "white",
     borderRadius: "12px",
     overflow: "hidden",
     border: "none",
@@ -94,7 +93,7 @@ const BlogCard = ({
     fontSize: "1.25rem",
     fontWeight: 700,
     lineHeight: "1.3",
-    textShadow: "0 2px 8px rgba(0,0,0,0.3)",
+    // textShadow: "0 2px 8px rgba(0,0,0,0.3)",
     margin: "0",
     maxWidth: "85%",
   };
@@ -126,6 +125,7 @@ const BlogCard = ({
         },
       }}
       style={cardStyle}
+      className="dark:bg-white/10 bg-white "
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-4px)";
       }}
@@ -181,9 +181,10 @@ const BlogCard = ({
             fontSize: "1.2rem",
             fontWeight: 700,
             marginBottom: "12px",
-            color: "#111827",
+            // color: "#111827",
             lineHeight: "1.3",
           }}
+          className="dark:text-gray-100 text-black "
         >
           {title}
         </h3>
@@ -214,10 +215,11 @@ const BlogCard = ({
         <p
           style={{
             fontSize: "0.85rem",
-            color: "#6b7280",
+            // color: "#6b7280",
             marginBottom: "16px",
             lineHeight: 1.5,
           }}
+          className="dark:text-gray-200 text-black "
         >
           {description}
         </p>
@@ -234,6 +236,7 @@ const BlogCard = ({
             fontSize: "14px",
             padding: 0,
           }}
+          className="dark:text-white"
         >
           Read more
         </div>

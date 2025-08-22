@@ -65,13 +65,13 @@ const ArticleCard = ({
       </div>
 
       {/* === Overlay Small Card === */}
-      <div className="w-full sm:max-w-[500px] lg:w-[350px] mt-8 lg:mt-0 lg:absolute lg:top-8 lg:right-10 bg-white rounded-xl shadow-xl p-5 font-poppins z-30">
+      <div className="w-full sm:max-w-[500px] lg:w-[350px] mt-8 lg:mt-0 lg:absolute lg:top-8 lg:right-10 bg-white dark:bg-white/10 rounded-xl shadow-xl p-5 font-poppins z-30">
         <div className="mb-3">
-          <span className="text-xs font-medium text-white bg-indigo-600 px-3 py-1 rounded">
-            Insurence
+          <span className="text-xs font-medium text-white bg-indigo-600 dark:bg-indigo-400 dark:text-black px-3 py-1 rounded">
+            Insurance
           </span>
         </div>
-        <h2 className="text-base sm:text-lg font-bold font-[marcellus] text-gray-900 leading-snug">
+        <h2 className="text-base sm:text-lg font-bold font-[marcellus] dark:text-white text-gray-900 leading-snug">
           Reliable Insurance Solutions for Every Stage of Life
         </h2>
         {/* <div className="flex items-center mt-4 gap-3">

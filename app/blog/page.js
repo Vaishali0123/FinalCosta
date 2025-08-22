@@ -22,7 +22,7 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
 import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 import ArticleRenderer from "../components/ArticleRenderer";
 import parse from "html-react-parser";
 import { GET_HERO_AND_STATS, graphQLClient } from "../lib/utils";
@@ -33,7 +33,7 @@ function stripHtml(html) {
 }
 
 const Page = () => {
-  const search = useSearchParams();
+  // const search = useSearchParams();
 
   // const latestposts = search.get("latestposts");
   // console.log(latestposts, "latestposts");
@@ -42,11 +42,11 @@ const Page = () => {
   // const image = search.get("image");
   const [blogData, setBlogData] = useState(null);
   const [translatedTitle, setTranslatedTitle] = useState("");
-  const [translatedContent, setTranslatedContent] = useState("");
   const [translatedPosts, setTranslatedPosts] = useState([]);
   const { language } = useLanguage();
   const [likeHeading, setLikeHeading] = useState("YOU MAY ALSO LIKE");
   const [followHeading, setFollowHeading] = useState("Follow Us");
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [followText, setFollowText] = useState(
     "Join thousands in growing subscriber and improve a collection of tools to help your team every work."
   );
@@ -273,23 +273,28 @@ const Page = () => {
     fetchData();
   }, [language]);
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* Hero Section */}
       <div className="max-w-7xl  mx-auto  px-4 py-6">
-        <div
-          className="relative flex  items-center h-[50vh] min-h-[260px] max-h-[450px] mb-8 rounded-[30px] overflow-hidden bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${image})` }}
-        >
-          <div className="relative z-10 w-full px-[8%] py-[5%] text-white flex flex-col items-start justify-center">
-            <h1 className="font-[Marcellus] text-shadow font-bold mb-3 max-w-[800px] leading-tight text-shadow-lg text-[clamp(1.5rem,4vw,3rem)]">
-              {title || ""}
-            </h1>
-            {/* <p className="text-[20px] max-w-[650px] mb-5 text-shadow">
+        {loading ? (
+          <div className="relative flex dark:bg-white/10 bg-black/10  animate-pulse items-center h-[50vh] min-h-[260px] max-h-[450px] mb-8 rounded-[30px] overflow-hidden bg-cover bg-center bg-no-repeat"></div>
+        ) : (
+          <div
+            className="relative flex  items-center h-[50vh] min-h-[260px] max-h-[450px] mb-8 rounded-[30px] overflow-hidden bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${image})` }}
+          >
+            <div className="relative z-10 w-full px-[8%] py-[5%] text-white flex flex-col items-start justify-center">
+              <h1 className="font-[Marcellus] text-shadow font-bold mb-3 max-w-[800px] leading-tight text-shadow-lg text-[clamp(1.5rem,4vw,3rem)]">
+                {title || ""}
+              </h1>
+              {/* <p className="text-[20px] max-w-[650px] mb-5 text-shadow">
               Whether you&apos;re looking for pet insurance, health insurance,
               or disability insurance, we&apos;ve got you covered.
             </p> */}
+            </div>
           </div>
-        </div>
+        )}
+
         {/* Overlay */}
         {/* <div className="absolute inset-0 bg-black/30 z-[1]" /> */}
 
@@ -457,8 +462,10 @@ const Page = () => {
           {/* Sidebar */}
           <aside className="space-y-8  pn:max-md:hidden">
             {/* Follow Us */}
-            <div className="bg-white p-6 rounded-lg border">
-              <h4 className="font-bold text-gray-800 mb-4">{followHeading}</h4>
+            <div className="bg-white dark:bg-white/10 p-6 dark:border-gray-800 rounded-lg border">
+              <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-4">
+                {followHeading}
+              </h4>
               <div className="flex space-x-4">
                 <Facebook className="w-5 h-5 text-blue-600" />
                 <Twitter className="w-5 h-5 text-blue-400" />
@@ -466,7 +473,9 @@ const Page = () => {
                 <Linkedin className="w-5 h-5 text-blue-700" />
                 <Youtube className="w-5 h-5 text-red-600" />
               </div>
-              <p className="text-sm text-gray-600 mt-4">{followText}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">
+                {followText}
+              </p>
               {/* <div className="mt-4">
                 <input
                   type="email"
@@ -486,8 +495,10 @@ const Page = () => {
             </div>
 
             {/* The Latest */}
-            <div className="bg-white p-6 rounded-lg  border">
-              <h4 className="font-bold text-gray-800 mb-4">The Latest</h4>
+            <div className="bg-white dark:bg-white/10 p-6 dark:border-gray-800 rounded-lg  border">
+              <h4 className="font-bold dark:text-gray-300 text-gray-800 dark:text-gray-20  mb-4">
+                The Latest
+              </h4>
               <div className="space-y-4">
                 {latestposts?.slice(0, 3)?.map((post, index) => (
                   <div key={index} className="flex space-x-3">
@@ -500,7 +511,7 @@ const Page = () => {
                       className="w-20 h-15 object-cover rounded"
                     />
                     <div>
-                      <h5 className="text-[12px] font-medium   text-gray-800 mb-1">
+                      <h5 className="text-[12px] font-medium  dark:text-gray-300  text-gray-800 mb-1">
                         {post?.title || "Loading Title..."}
                       </h5>
                       {/* <p className="text-xs text-gray-500">
@@ -642,7 +653,7 @@ const Page = () => {
       {/* You May Also Like Section */}
       <section className=" py-16">
         <div className="container mx-auto px-6">
-          <h3 className="text-2xl font-bold text-gray-800 mb-12">
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-12">
             {likeHeading}
           </h3>
           {loading ? (
@@ -656,18 +667,18 @@ const Page = () => {
               {/* Article 1 */}
               <article
                 // key={item}
-                className="bg-white  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-white/10  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 <img
                   src={category0?.featuredImage?.node?.sourceUrl}
-                  alt="Article"
+                  alt={category0?.title || "Article"}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-gray-800 mb-2">
+                  <h4 className="font-bold text-gray-800  dark:text-gray-100 mb-2">
                     {category0?.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 dark:text-gray-200  text-sm mb-4">
                     {stripHtml(category0.content)?.slice(0, 100) + "..."}
                   </p>
                   {/* <div className="text-xs text-gray-500">
@@ -678,18 +689,18 @@ const Page = () => {
               {/* Article 2 */}
               <article
                 // key={item}
-                className="bg-white  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-white/10  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 <img
                   src={category1?.featuredImage?.node?.sourceUrl}
-                  alt="Article"
+                  alt={category1?.title || "Article"}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-gray-800 mb-2">
+                  <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-2">
                     {category1?.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 dark:text-gray-200 text-sm mb-4">
                     {stripHtml(category1.content)?.slice(0, 100) + "..."}
                   </p>
                   {/* <div className="text-xs text-gray-500">
@@ -700,18 +711,18 @@ const Page = () => {
               {/* Article 3 */}
               <article
                 // key={item}
-                className="bg-white  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-white/10  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 <img
                   src={category2?.featuredImage?.node?.sourceUrl}
-                  alt="Article"
+                  alt={category2?.title || "Article"}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-gray-800 mb-2">
+                  <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-2">
                     {category2?.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 dark:text-gray-200 text-sm mb-4">
                     {stripHtml(category2.content)?.slice(0, 100) + "..."}
                   </p>
                   {/* <div className="text-xs text-gray-500">
@@ -722,18 +733,18 @@ const Page = () => {
               {/* Article 4 */}
               <article
                 // key={item}
-                className="bg-white  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-white/10  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 <img
                   src={category3?.featuredImage?.node?.sourceUrl}
-                  alt="Article"
+                  alt={category3?.title || "Article"}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-gray-800 mb-2">
+                  <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-2">
                     {category3?.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 dark:text-gray-200 text-sm mb-4">
                     {stripHtml(category3.content)?.slice(0, 100) + "..."}
                   </p>
                   {/* <div className="text-xs text-gray-500">
@@ -744,18 +755,18 @@ const Page = () => {
               {/* Article 5 */}
               <article
                 // key={item}
-                className="bg-white  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-white/10  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 <img
                   src={category4?.featuredImage?.node?.sourceUrl}
-                  alt="Article"
+                  alt={category4?.title || "Article"}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-gray-800 mb-2">
+                  <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-2">
                     {category4?.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 dark:text-gray-200 text-sm mb-4">
                     {stripHtml(category4.content)?.slice(0, 100) + "..."}
                   </p>
                   {/* <div className="text-xs text-gray-500">
@@ -766,18 +777,18 @@ const Page = () => {
               {/* Article 6 */}
               <article
                 // key={item}
-                className="bg-white  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-white/10  rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 <img
                   src={category5?.featuredImage?.node?.sourceUrl}
-                  alt="Article"
+                  alt={category5?.title || "Article"}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-gray-800 mb-2">
+                  <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-2">
                     {category5?.title}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 dark:text-gray-200 text-sm mb-4">
                     {stripHtml(category5.content)?.slice(0, 100) + "..."}
                   </p>
                   {/* <div className="text-xs text-gray-500">
