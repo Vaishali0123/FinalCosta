@@ -111,7 +111,7 @@ const Page = () => {
     if (stored) {
       setBlogData(JSON.parse(stored));
     }
-  }, [sessionStorage]);
+  }, []);
   const content = blogData?.content;
   const title = translatedTitle || blogData?.title;
   const image = blogData?.image;
