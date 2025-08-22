@@ -211,7 +211,7 @@ export default function Hero() {
       </div>
       {/* Stats Section */}
       <div className="relative py-6  z-10 mx-auto flex w-full max-w-6xl flex-col px-4 sm:px-6 lg:px-8 ">
-        <div className="flex pn:max-md:h-[740px] overflow-hidden h-[320px] flex-col items-center justify-evenly sm:flex-row sm:flex-wrap gap-6">
+        <div className="flex pn:max-md:h-[740px]  overflow-hidden h-[370px] flex-col items-center justify-evenly sm:flex-row sm:flex-wrap gap-6">
           {isLoading ||
           !(
             (activeIndex === 0
@@ -243,17 +243,29 @@ export default function Hero() {
                 ?.slice(0, isMobile ? 2 : 3)
                 ?.map((stat) => (
                   <Link
+                    onClick={() => {
+                      sessionStorage.setItem(
+                        "blogContent",
+                        JSON.stringify({
+                          content: stat?.content,
+                          title: stat?.title,
+                          postid: stat?.id,
+                          image: stat?.featuredImage?.node?.sourceUrl,
+                          // latestposts,
+                        })
+                      );
+                    }}
                     href={{
                       pathname: "/blog",
-                      query: {
-                        content: stat?.content,
-                        title: stat?.title,
-                        postid: stat?.id,
-                        image: stat?.featuredImage?.node?.sourceUrl,
-                      },
+                      // query: {
+                      //   content: stat?.content,
+                      //   title: stat?.title,
+                      //   postid: stat?.id,
+                      //   image: stat?.featuredImage?.node?.sourceUrl,
+                      // },
                     }}
                     key={stat?.title}
-                    className="flex pn:max-sm:h-[500px] dark:text-white bg-white dark:bg-black flex-col overflow-hidden rounded-t-3xl group w-full sm:w-[48%] md:w-[31%]"
+                    className="flex pn:max-sm:h-[500px]  dark:text-white bg-white dark:bg-black flex-col overflow-hidden rounded-t-3xl group w-full sm:w-[48%] md:w-[31%]"
                   >
                     <div className="aspect-video  h-[29.5vh]  w-full">
                       <img

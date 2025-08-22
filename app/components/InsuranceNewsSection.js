@@ -135,7 +135,7 @@ export default function InsuranceNewsSection({
   }
   return (
     <>
-      <div className="py-8 sm:py-24   sm:h-[100vh] px-4 relative">
+      <div className="py-8 sm:py-24    sm:h-[100vh] px-4 relative">
         {/* Background glow */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-orange-200/40 rounded-full opacity-50 blur-3xl" />
         <div className="max-w-6xl mx-auto">
@@ -152,7 +152,7 @@ export default function InsuranceNewsSection({
               {/* Main blog card */}
               <div
                 key={animationKey}
-                className="flex-1 bg-white dark:bg-[#171717]  p-3 rounded-3xl shadow-[-6px_4px_41.5px_0px_#FFF8E9] dark:shadow-none flex flex-col blog-card-animate"
+                className="flex-1 bg-white  dark:bg-[#171717]  p-3 rounded-3xl shadow-[-6px_4px_41.5px_0px_#FFF8E9] dark:shadow-none flex flex-col blog-card-animate"
               >
                 <div className="relative w-full lg:w-[35.5rem] h-64 sm:h-80 lg:h-[60%] p-4 rounded-2xl  overflow-hidden mb-3">
                   {activeBlog?.featuredImage?.node?.sourceUrl ? (
@@ -168,7 +168,7 @@ export default function InsuranceNewsSection({
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-xl" />
                 </div>
-                <div className="flex items-center gap-3 text-lg font-bold dark:text-gray-100 text-gray-900 mb-3">
+                <div className="flex  items-center gap-3 text-lg font-bold dark:text-gray-100 text-gray-900 mb-3">
                   {activeBlog?.icon || icons[activeBlog?.iconName]}
                   {activeBlog?.title}
                 </div>

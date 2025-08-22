@@ -306,7 +306,7 @@ const Header = () => {
           <div className=" top-4 right-6  flex gap-2">
             <button
               onClick={() => setOpen(!open)}
-              className="px-4 py-2 w-[70px] flex items-center gap-2 border text-slate-500 dark:text-white  font-medium rounded-full  transition"
+              className="px-4 py-2 w-[70px] flex  items-center justify-evenly gap-2 border text-slate-500 dark:text-white  font-medium rounded-full  transition"
             >
               <span>{currentLang.flag}</span>
               <span>{currentLang.code}</span>

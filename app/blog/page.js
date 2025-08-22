@@ -311,33 +311,35 @@ const Page = () => {
             </div>
 
             {/* The Latest */}
-            <div className="bg-white dark:bg-white/10 p-6 dark:border-gray-800 rounded-lg  border">
-              <h4 className="font-bold dark:text-gray-300 text-gray-800 dark:text-gray-20  mb-4">
-                The Latest
-              </h4>
-              <div className="space-y-4">
-                {latestposts?.slice(0, 3)?.map((post, index) => (
-                  <div key={index} className="flex space-x-3">
-                    <img
-                      src={
-                        post?.featuredImage?.node?.sourceUrl ||
-                        "/api/placeholder/80/60"
-                      }
-                      alt={post?.title || "Article"}
-                      className="w-20 h-15 object-cover rounded"
-                    />
-                    <div>
-                      <h5 className="text-[12px] font-medium  dark:text-gray-300  text-gray-800 mb-1">
-                        {post?.title || "Loading Title..."}
-                      </h5>
-                      {/* <p className="text-xs text-gray-500">
+            {latestposts?.length > 0 && (
+              <div className="bg-white dark:bg-white/10 p-6 dark:border-gray-800 rounded-lg  border">
+                <h4 className="font-bold dark:text-gray-300 text-gray-800 dark:text-gray-20  mb-4">
+                  The Latest
+                </h4>
+                <div className="space-y-4">
+                  {latestposts?.slice(0, 3)?.map((post, index) => (
+                    <div key={index} className="flex space-x-3">
+                      <img
+                        src={
+                          post?.featuredImage?.node?.sourceUrl ||
+                          "/api/placeholder/80/60"
+                        }
+                        alt={post?.title || "Article"}
+                        className="w-20 h-15 object-cover rounded"
+                      />
+                      <div>
+                        <h5 className="text-[12px] font-medium  dark:text-gray-300  text-gray-800 mb-1">
+                          {post?.title || "Loading Title..."}
+                        </h5>
+                        {/* <p className="text-xs text-gray-500">
                       June 14, 2023 • 3 minute read
                     </p> */}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </aside>
         </div>
       </main>
