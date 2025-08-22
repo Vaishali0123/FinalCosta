@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import pic from "../../../public/three.jpg";
 import Link from "next/link";
+import { useLanguage } from "../../context/LanguageContext";
 async function translateText(text, targetLang) {
   try {
     // Example using Google Translate API (fetch from your backend instead of client directly)
@@ -17,6 +18,7 @@ async function translateText(text, targetLang) {
   }
 }
 const Banner = () => {
+  const { language } = useLanguage();
   const [translations, setTranslations] = useState({
     bannerTitle: "Find the Right Insurance with Confidence",
     bannerDesc:

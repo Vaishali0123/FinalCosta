@@ -317,7 +317,7 @@ const Header = () => {
 
             {/* Dropdown */}
             {open && (
-              <div className="absolute mt-2 top-16 w-52 bg-white rounded-xl shadow-lg border z-50 overflow-hidden animate-fadeIn">
+              <div className="absolute mt-2 top-16 w-52 bg-red-500 rounded-xl shadow-lg border z-50 overflow-hidden animate-fadeIn">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
