@@ -460,14 +460,14 @@ import Logo from "../../app/assets/logo.png";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 import { HiX } from "react-icons/hi";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { GET_HERO_AND_STATS, graphQLClient } from "../lib/utils";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FiX } from "react-icons/fi";
 import { HiMenuAlt3 } from "react-icons/hi";
 
-const HeaderPage = () => {
+const Header = () => {
   const [showInsuranceMenu, setShowInsuranceMenu] = useState(false);
   const [menuOpenedByClick, setMenuOpenedByClick] = useState(false);
   const [menu, setMenu] = useState(true);
@@ -476,7 +476,7 @@ const HeaderPage = () => {
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
   const router = useRouter();
-  const params = useSearchParams();
+
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const { language, setLanguage } = useLanguage();
@@ -875,13 +875,7 @@ const HeaderPage = () => {
     </div>
   );
 };
-const Header = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <HeaderPage />
-    </Suspense>
-  );
-};
+
 export default Header;
 // "use client";
 // import Image from "next/image";
