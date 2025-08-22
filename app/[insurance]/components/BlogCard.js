@@ -1,6 +1,22 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
+async function translateText(text, targetLang) {
+  if (!text || targetLang === "en") return text;
+  try {
+    const res = await fetch("/api/translate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, targetLang }),
+    });
+    const data = await res.json();
+    return data.translatedText || text;
+  } catch (err) {
+    console.error("Translation error:", err);
+    return text;
+  }
+}
 
 const BlogCard = ({
   title = "Blog Post Title",
@@ -101,6 +117,31 @@ const BlogCard = ({
   const contentStyle = {
     padding: "16px",
   };
+  const { language } = useLanguage();
+  const [translations, setTranslations] = useState({
+    title,
+    description,
+    readMore: "Read more",
+  });
+  useEffect(() => {
+    async function doTranslate() {
+      if (language === "en") {
+        setTranslations({ title, description, readMore: "Read more" });
+        return;
+      }
+
+      const translatedTitle = await translateText(title, language);
+      const translatedDesc = await translateText(description, language);
+      const translatedReadMore = await translateText("Read more", language);
+
+      setTranslations({
+        title: translatedTitle,
+        description: translatedDesc,
+        readMore: translatedReadMore,
+      });
+    }
+    doTranslate();
+  }, [language, title, description]);
   return (
     <Link
       onClick={() => {
@@ -186,7 +227,8 @@ const BlogCard = ({
           }}
           className="dark:text-gray-100 text-black "
         >
-          {title}
+          {/* {title} */}
+          {translations.title}
         </h3>
 
         {/* <div
@@ -221,7 +263,8 @@ const BlogCard = ({
           }}
           className="dark:text-gray-200 text-black "
         >
-          {description}
+          {/* {description} */}
+          {translations.description}
         </p>
 
         <div
@@ -238,7 +281,8 @@ const BlogCard = ({
           }}
           className="dark:text-white"
         >
-          Read more
+          {/* Read more */}
+          {translations.readMore}
         </div>
       </div>
     </Link>

@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 // Props destructured for reusability
 const ArticleCard = ({
   title = "  Comprehensive insurance solutions to safeguard your life, health, home, travels, pets, and more — because peace of mind is priceless.",
@@ -8,6 +9,55 @@ const ArticleCard = ({
   authorImage = "/blog/author.jpg",
   backgroundImage = "/blog/bg2.jpg",
 }) => {
+  const { language } = useLanguage();
+
+  // Local states for translated text
+  const [translatedTitle, setTranslatedTitle] = useState(title);
+  const [translatedTag, setTranslatedTag] = useState("Insurance");
+  const [translatedSmallTitle, setTranslatedSmallTitle] = useState(
+    "Reliable Insurance Solutions for Every Stage of Life"
+  );
+  const [translatedDate, setTranslatedDate] = useState(date);
+  async function translateText(text, targetLang) {
+    if (!text) return text;
+
+    try {
+      const res = await fetch("/api/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, targetLang }),
+      });
+
+      const data = await res.json();
+      return data.translatedText || text;
+    } catch (err) {
+      console.error("Translation API error:", err);
+      return text; // fallback to original
+    }
+  }
+  useEffect(() => {
+    if (!language || language === "en") return; // no need to translate if English
+
+    const doTranslation = async () => {
+      const [tTitle, tAuthor, tTag, tSmall, tDate] = await Promise.all([
+        translateText(title, language),
+        translateText(authorName, language),
+        translateText("Insurance", language),
+        translateText(
+          "Reliable Insurance Solutions for Every Stage of Life",
+          language
+        ),
+        translateText(date, language),
+      ]);
+      setTranslatedTitle(tTitle);
+      // setTranslatedAuthor(tAuthor);
+      setTranslatedTag(tTag);
+      setTranslatedSmallTitle(tSmall);
+      setTranslatedDate(tDate);
+    };
+
+    doTranslation();
+  }, [language, title, authorName, date]);
   return (
     <div className="relative flex flex-col lg:flex-row items-center w-full px-6 py-24">
       {/* === Main Large Card === */}
@@ -29,7 +79,8 @@ const ArticleCard = ({
           <div className="flex-grow mb-6">
             <div className="w-full md:w-4/5 lg:w-3/5">
               <h1 className="text-[32px] sm:text-[40px] md:text-[36px]  font-medium  font-[marcellus] leading-tight font-poppins">
-                {title}
+                {/* {title} */}
+                {translatedTitle}
               </h1>
             </div>
           </div>
@@ -68,11 +119,13 @@ const ArticleCard = ({
       <div className="w-full sm:max-w-[500px] lg:w-[350px] mt-8 lg:mt-0 lg:absolute lg:top-8 lg:right-10 bg-white dark:bg-white/10 rounded-xl shadow-xl p-5 font-poppins z-30">
         <div className="mb-3">
           <span className="text-xs font-medium text-white bg-indigo-600 dark:bg-indigo-400 dark:text-black px-3 py-1 rounded">
-            Insurance
+            {/* Insurance */}
+            {translatedTag}
           </span>
         </div>
         <h2 className="text-base sm:text-lg font-bold font-[marcellus] dark:text-white text-gray-900 leading-snug">
-          Reliable Insurance Solutions for Every Stage of Life
+          {/* Reliable Insurance Solutions for Every Stage of Life */}
+          {translatedSmallTitle}
         </h2>
         {/* <div className="flex items-center mt-4 gap-3">
           <img

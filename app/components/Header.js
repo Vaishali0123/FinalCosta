@@ -640,7 +640,7 @@ const HeaderPage = () => {
           className={`duration-300 flex gap-5 ease-in-out ${
             menu
               ? "pn:max-sm:scale-0 pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 "
-              : " pn:max-sm:flex-col flex pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-5 dark:bg-[#000] pn:max-sm:border-b pn:max-sm:bg-[#fff]"
+              : " pn:max-sm:flex-col  flex  pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-5 dark:bg-[#000] pn:max-sm:border-b pn:max-sm:bg-[#fff] "
           }`}
         >
           {navLinks.map(({ href, label, id }) =>
@@ -742,7 +742,7 @@ const HeaderPage = () => {
           <div className=" top-4 right-6  flex gap-2">
             <button
               onClick={() => setOpen(!open)}
-              className="px-4 py-2 w-[70px] flex items-center gap-2 border text-slate-500 dark:text-white font-medium rounded-full  transition"
+              className="px-4 py-2 w-[70px] flex items-center gap-2 border text-slate-500 dark:text-white  font-medium rounded-full  transition"
             >
               <span>{currentLang.flag}</span>
               <span>{currentLang.code}</span>

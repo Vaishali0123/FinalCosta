@@ -43,7 +43,7 @@ const Index = () => {
     benefit3Title: "Plain English",
     benefit3Desc:
       "We translate complex insurance terms into clear, actionable guidance you can actually understand.",
-    aboutTitle: "About CostaRicanInsurance.com",
+    aboutTitle: "About Costa Rican Insurance",
     aboutDesc1:
       "We make protecting what matters simple, clear, and accessible, whether you're a local resident, expat, student, or traveler in Costa Rica.",
     aboutDesc2:
@@ -131,21 +131,21 @@ const Index = () => {
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block mb-4">
+            <div className="inline-block mb-4 ">
               <span className="bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-100 dark:to-orange-200 dark:text-gray-900 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg animate-pulse">
-                {translations?.trusted}
+                {translations?.trusted || texts?.trusted}
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-[marcellus] font-extrabold text-gray-900 dark:text-gray-100 mb-6 leading-tight bg-gradient-to-r from-gray-900 via-gray-800 to-orange-700 bg-clip-text text-transparent">
-              {translations?.heroTitle}
+            <h2 className="text-4xl md:text-6xl font-[marcellus] font-extrabold text-gray-900 dark:text-gray-100  mb-6 leading-tight bg-gradient-to-r from-gray-900 via-gray-800 to-orange-700 bg-clip-text text-transparent">
+              {translations?.heroTitle || texts?.heroTitle}
               <span className="block text-orange-600 dark:text-orange-200 font-[marcellus] animate-pulse">
-                {translations?.brand}
+                {translations?.brand || texts?.brand}
               </span>
             </h2>
 
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-100 mb-8 leading-relaxed max-w-3xl mx-auto opacity-90">
-              {translations.heroDesc}
+              {translations.heroDesc || texts.heroDesc}
             </p>
 
             <Link
@@ -157,7 +157,7 @@ const Index = () => {
                 size="lg"
                 className="px-8 py-4 border-2 rounded-full border-orange-600 dark:border-orange-100 text-orange-600 hover:bg-orange-500 hover:dark:bg-orange-100 dark:bg-orange-50 text-base font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 bg-white/80 backdrop-blur-sm"
               >
-                {translations.contactBtn}
+                {translations.contactBtn || texts.contactBtn}
               </Button>
             </Link>
 
@@ -171,10 +171,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold font-[marcellus] text-gray-900 dark:text-gray-100  mb-4 bg-gradient-to-r dark:from-gray-100 dark:to-gray-200 from-gray-900 to-orange-700 bg-clip-text text-transparent">
-              {translations.whyChoose}
+              {translations.whyChoose || texts.whyChoose}
             </h3>
             <p className="text-base text-gray-600 dark:text-gray-200 max-w-2xl mx-auto">
-              {translations.whyDesc}
+              {translations.whyDesc || texts.whyDesc}
             </p>
           </div>
 
@@ -182,20 +182,20 @@ const Index = () => {
             {[
               {
                 icon: Shield,
-                title: translations.benefit1Title,
-                description: translations.benefit1Desc,
+                title: translations.benefit1Title || texts.benefit1Title,
+                description: translations.benefit1Desc || texts.benefit1Desc,
                 gradient: "from-orange-500 to-red-500",
               },
               {
                 icon: Globe,
-                title: translations.benefit2Title,
-                description: translations.benefit2Desc,
+                title: translations.benefit2Title || texts.benefit2Title,
+                description: translations.benefit2Desc || texts.benefit2Desc,
                 gradient: "from-orange-500 to-yellow-500",
               },
               {
                 icon: CheckCircle,
-                title: translations.benefit3Title,
-                description: translations.benefit3Desc,
+                title: translations.benefit3Title || texts.benefit3Title,
+                description: translations.benefit3Desc || texts.benefit3Desc,
                 gradient: "from-orange-500 to-pink-500",
               },
             ].map((benefit, index) => (
@@ -240,22 +240,22 @@ const Index = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h3 className="text-4xl font-bold mb-6 font-[marcellus] dark:from-gray-100 dark:to-orange-300 bg-gradient-to-r from-gray-900 to-orange-700 bg-clip-text text-transparent">
-                {translations.aboutTitle}
+                {translations.aboutTitle || texts.aboutTitle}
               </h3>
               <p className="text-lg text-gray-700 dark:text-gray-200 mb-6 leading-relaxed">
-                {translations.aboutDesc1}
+                {translations.aboutDesc1 || texts.aboutDesc1}
               </p>
               <p className="text-base text-gray-600 dark:text-gray-100 mb-10 leading-relaxed">
-                {translations.aboutDesc2}
+                {translations.aboutDesc2 || texts.aboutDesc2}
               </p>
 
               <div className="bg-white/80 dark:bg-black/30 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-orange-200/50 hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-orange-500/5"></div>
                 <h4 className="text-2xl font-bold font-[marcellus] text-orange-600 dark:text-orange-200 mb-4 relative z-10">
-                  {translations.mission}
+                  {translations.mission || texts.mission}
                 </h4>
                 <p className="text-base text-gray-700 dark:text-gray-200 leading-relaxed relative z-10">
-                  {translations.missionDesc}
+                  {translations.missionDesc || texts.missionDesc}
                 </p>
               </div>
             </div>
@@ -271,10 +271,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold font-[marcellus] dark:text-gray-200 text-gray-900 mb-3">
-              {translations.offerTitle}
+              {translations.offerTitle || texts.offerTitle}
             </h3>
             <p className="text-lg dark:text-gray-200 text-gray-600">
-              {translations.offerDesc}
+              {translations.offerDesc || texts.offerDesc}
             </p>
           </div>
 
@@ -282,33 +282,33 @@ const Index = () => {
             {[
               {
                 icon: FileText,
-                title: translations.guideTitle,
-                desc: translations.guideDesc,
+                title: translations.guideTitle || texts.guideTitle,
+                desc: translations.guideDesc || texts.guideDesc,
               },
               {
                 icon: Users,
-                title: translations.compareTitle,
-                desc: translations.compareDesc,
+                title: translations.compareTitle || texts.compareTitle,
+                desc: translations.compareDesc || texts.compareDesc,
               },
               {
                 icon: CheckCircle,
-                title: translations.claimTitle,
-                desc: translations.claimDesc,
+                title: translations.claimTitle || texts.claimTitle,
+                desc: translations.claimDesc || texts.claimDesc,
               },
               {
                 icon: Globe,
-                title: translations.localTitle,
-                desc: translations.localDesc,
+                title: translations.localTitle || texts.localTitle,
+                desc: translations.localDesc || texts.localDesc,
               },
               {
                 icon: FileText,
-                title: translations.toolsTitle,
-                desc: translations.toolsDesc,
+                title: translations.toolsTitle || texts.toolsTitle,
+                desc: translations.toolsDesc || texts.toolsDesc,
               },
               {
                 icon: Globe,
-                title: translations.bilingualTitle,
-                desc: translations.bilingualDesc,
+                title: translations.bilingualTitle || texts.bilingualTitle,
+                desc: translations.bilingualDesc || texts.bilingualDesc,
               },
             ].map((item, i) => (
               <Card
@@ -414,10 +414,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-[marcellus] font-bold dark:text-gray-100  text-gray-900 mb-3">
-              {translations.whoTitle}
+              {translations.whoTitle || "Who We Help"}
             </h3>
             <p className="text-lg text-gray-600 dark:text-gray-300 ">
-              {translations.whoDesc}
+              {translations.whoDesc || texts.whoDesc}
             </p>
           </div>
 
@@ -425,23 +425,23 @@ const Index = () => {
             {[
               {
                 icon: PlaneTakeoff,
-                title: translations.expatsTitle,
-                desc: translations.expatsDesc,
+                title: translations.expatsTitle || texts.expatsTitle,
+                desc: translations.expatsDesc || texts.expatsDesc,
               },
               {
                 icon: GraduationCap,
-                title: translations.familyTitle,
-                desc: translations.familyDesc,
+                title: translations.familyTitle || texts.familyTitle,
+                desc: translations.familyDesc || texts.familyDesc,
               },
               {
                 icon: Home,
-                title: translations.homeTitle,
-                desc: translations.homeDesc,
+                title: translations.homeTitle || texts.homeTitle,
+                desc: translations.homeDesc || texts.homeDesc,
               },
               {
                 icon: Globe,
-                title: translations.nomadsTitle,
-                desc: translations.nomadsDesc,
+                title: translations.nomadsTitle || texts.nomadsTitle,
+                desc: translations.nomadsDesc || texts.nomadsDesc,
               },
             ].map((item, i) => (
               <Card
@@ -510,10 +510,10 @@ const Index = () => {
 
           <div className="text-center mt-8">
             <p className="text-base text-gray-700 dark:text-gray-200 d font-medium">
-              {translations.closingLine}
+              {translations.closingLine || texts.closingLine}
             </p>
             <p className="text-lg text-orange-600 dark:text-gray-200 font-bold mt-2">
-              {translations.closingBold}
+              {translations.closingBold || texts.closingBold}
             </p>
           </div>
         </div>

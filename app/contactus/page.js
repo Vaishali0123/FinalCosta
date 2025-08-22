@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Map from "../../public/Map.png";
+import { useLanguage } from "../context/LanguageContext";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,84 @@ const Contact = () => {
       [name]: value,
     }));
   };
+  const [translations, setTranslations] = useState({});
+  const { language } = useLanguage();
+  // ✅ Centralized text dictionary
+  const texts = {
+    toastSuccess: "Message sent successfully!",
+    toastNote: "We'll get back to you within 24 hours.",
+    bannerTag: "Contact Support",
+    bannerTitle: "Get in Touch",
+    bannerDesc:
+      "We're here to help you find the perfect insurance solution. Contact our experts today for personalized assistance.",
+    contactInfoTitle: "Contact Information",
+    contactInfoDesc:
+      "Get in touch with our insurance experts. We're available 24/7 to assist you with all your insurance needs.",
+    emailSupportTitle: "Email Support",
+    emailSupportDesc: "Send us an email",
+    email1: "support@costaricainsurance.com",
+    email2: "claims@costaricainsurance.com",
+    formTitle: "Send us a Message",
+    formDesc:
+      "Fill out the form below and our team will get back to you within 24 hours.",
+    firstNameLabel: "First Name *",
+    firstNamePlaceholder: "John",
+    lastNameLabel: "Last Name *",
+    lastNamePlaceholder: "Doe",
+    emailLabel: "Email Address *",
+    emailPlaceholder: "john.doe@example.com",
+    phoneLabel: "Phone Number",
+    phonePlaceholder: "+1 (555) 123-4567",
+    insuranceTypeLabel: "Insurance Type",
+    insuranceTypePlaceholder: "Select insurance type",
+    insuranceTypeAuto: "Auto Insurance",
+    insuranceTypeHome: "Home Insurance",
+    insuranceTypeLife: "Life Insurance",
+    insuranceTypeHealth: "Health Insurance",
+    insuranceTypeBusiness: "Business Insurance",
+    insuranceTypeTravel: "Travel Insurance",
+    subjectLabel: "Subject *",
+    subjectPlaceholder: "How can we help you?",
+    messageLabel: "Message *",
+    messagePlaceholder: "Please describe your inquiry in detail...",
+    privacyTitle: "Your privacy is protected",
+    privacyDesc:
+      "We use industry-standard encryption to protect your personal information and will never share your data with third parties.",
+    submitBtn: "Send Message",
+  };
+
+  // ✅ Translate helper
+  async function translateText(text, targetLang) {
+    if (!text || targetLang === "en") return text;
+    try {
+      const res = await fetch("/api/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, targetLang }),
+      });
+      const data = await res.json();
+      return data.translatedText || text;
+    } catch (err) {
+      console.error("Translation error:", err);
+      return text;
+    }
+  }
+
+  // ✅ Translate all texts dynamically when language changes
+  useEffect(() => {
+    async function doTranslate() {
+      if (language === "en") {
+        setTranslations(texts);
+        return;
+      }
+      const translated = {};
+      for (let [key, value] of Object.entries(texts)) {
+        translated[key] = await translateText(value, language);
+      }
+      setTranslations(translated);
+    }
+    doTranslate();
+  }, [language]);
 
   return (
     <div
@@ -66,9 +145,12 @@ const Contact = () => {
               />
             </svg>
             <div>
-              <p className="font-medium">Message sent successfully!</p>
+              <p className="font-medium">
+                {translations.toastSuccess || "Message sent successfully!"}
+              </p>
               <p className="text-sm opacity-90">
-                We&apos;ll get back to you within 24 hours.
+                {translations.toastNote ||
+                  "We will get back to you within 24 hours."}
               </p>
             </div>
           </div>
@@ -93,14 +175,13 @@ const Contact = () => {
                   d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                 />
               </svg>
-              Contact Support
+              {translations.bannerTag || texts.bannerTag}
             </span>
             <h1 className="text-2xl md:text-3xl font-[Marcellus] font-bold mb-6 dark:text-white">
-              Get in Touch
+              {translations.bannerTitle || texts.bannerTitle}
             </h1>
             <p className="text-[14px] md:text-[14px] max-w-3xl mx-auto opacity-90 dark:text-gray-300">
-              We&apos;re here to help you find the perfect insurance solution.
-              Contact our experts today for personalized assistance.
+              {translations.bannerDesc || texts.bannerDesc}
             </p>
           </div>
         </div>
@@ -112,11 +193,10 @@ const Contact = () => {
           <div className="lg:col-span-1 space-y-8">
             <div>
               <h2 className="text-3xl font-bold  font-[Marcellus] mb-6 dark:text-white">
-                Contact Information
+                {translations.contactInfoTitle || texts.contactInfoTitle}
               </h2>
               <p className="text-muted-foreground mb-8 dark:text-gray-300">
-                Get in touch with our insurance experts. We&apos;re available
-                24/7 to assist you with all your insurance needs.
+                {translations.contactInfoDesc || texts.contactInfoDesc}
               </p>
             </div>
 
@@ -178,16 +258,18 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-1 dark:text-white">
-                        Email Support
+                        {translations.emailSupportTitle ||
+                          texts.emailSupportTitle}
                       </h3>
                       <p className="text-muted-foreground mb-2 dark:text-gray-300">
-                        Send us an email
+                        {translations.emailSupportDesc ||
+                          texts.emailSupportDesc}
                       </p>
                       <p className="font-medium text-[#f59f0a] pn:max-ss:text-[13px]  text-primary  dark:text-yellow-400">
-                        support@costaricainsurance.com
+                        {translations.email1 || texts.email1}
                       </p>
                       <p className="font-medium text-[#f59f0a]  pn:max-ss:text-[13px] text-primary dark:text-yellow-400">
-                        claims@costaricainsurance.com
+                        {translations.email2 || texts.email2}
                       </p>
                     </div>
                   </div>
@@ -277,11 +359,10 @@ const Contact = () => {
               <div className="p-8">
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold  font-[Marcellus] mb-4 dark:text-white">
-                    Send us a Message
+                    {translations.formTitle || texts.formTitle}
                   </h2>
                   <p className="text-muted-foreground dark:text-gray-300">
-                    Fill out the form below and our team will get back to you
-                    within 24 hours.
+                    {translations.formDesc || texts.formDesc}
                   </p>
                 </div>
 
@@ -289,7 +370,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium mb-2 dark:text-gray-200">
-                        First Name *
+                        {translations.firstNameLabel || texts.firstNameLabel}
                       </label>
                       <input
                         type="text"
@@ -303,7 +384,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2 dark:text-gray-200">
-                        Last Name *
+                        {translations.lastNameLabel || texts.lastNameLabel}
                       </label>
                       <input
                         type="text"
@@ -320,7 +401,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block dark:text-gray-200 text-sm font-medium mb-2">
-                        Email Address *
+                        {translations.emailLabel || texts.emailLabel}
                       </label>
                       <input
                         type="email"
@@ -334,7 +415,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block  dark:text-gray-200 text-sm font-medium mb-2">
-                        Phone Number
+                        {translations.phoneLabel || texts.phoneLabel}
                       </label>
                       <input
                         type="tel"
@@ -350,7 +431,8 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block dark:text-gray-200 text-sm font-medium mb-2">
-                        Insurance Type
+                        {translations.insuranceTypeLabel ||
+                          texts.insuranceTypeLabel}
                       </label>
                       <select
                         name="insuranceType"
@@ -358,18 +440,39 @@ const Contact = () => {
                         onChange={handleInputChange}
                         className="w-full h-12 px-3 dark:bg-white/20 dark:border-gray-600 dark:text-white py-2 bg-background border border-input border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                       >
-                        <option value="">Select insurance type</option>
-                        <option value="auto">Auto Insurance</option>
-                        <option value="home">Home Insurance</option>
-                        <option value="life">Life Insurance</option>
-                        <option value="health">Health Insurance</option>
-                        <option value="business">Business Insurance</option>
-                        <option value="travel">Travel Insurance</option>
+                        <option value="">
+                          {translations.insuranceTypePlaceholder ||
+                            texts.insuranceTypePlaceholder}
+                        </option>
+                        <option value="auto">
+                          {translations.insuranceTypeAuto ||
+                            texts.insuranceTypeAuto}
+                        </option>
+                        <option value="home">
+                          {translations.insuranceTypeHome ||
+                            texts.insuranceTypeHome}
+                        </option>
+                        <option value="life">
+                          {translations.insuranceTypeLife ||
+                            texts.insuranceTypeLife}
+                        </option>
+                        <option value="health">
+                          {translations.insuranceTypeHealth ||
+                            texts.insuranceTypeHealth}
+                        </option>
+                        <option value="business">
+                          {translations.insuranceTypeBusiness ||
+                            texts.insuranceTypeBusiness}
+                        </option>
+                        <option value="travel">
+                          {translations.insuranceTypeTravel ||
+                            texts.insuranceTypeTravel}
+                        </option>
                       </select>
                     </div>
                     <div>
                       <label className="block dark:text-gray-200 text-sm font-medium mb-2">
-                        Subject *
+                        {translations.subjectLabel || texts.subjectLabel}
                       </label>
                       <input
                         type="text"
@@ -385,7 +488,7 @@ const Contact = () => {
 
                   <div>
                     <label className="block dark:text-gray-200 text-sm font-medium mb-2">
-                      Message *
+                      {translations.messageLabel || texts.messageLabel}
                     </label>
                     <textarea
                       name="message"
@@ -413,12 +516,10 @@ const Contact = () => {
                     </svg>
                     <div className="text-sm text-muted-foreground">
                       <p className="font-medium mb-1 dark:text-white">
-                        Your privacy is protected
+                        {translations.privacyTitle || texts.privacyTitle}
                       </p>
                       <p className="dark:text-white">
-                        We use industry-standard encryption to protect your
-                        personal information and will never share your data with
-                        third parties.
+                        {translations.privacyDesc || texts.privacyDesc}
                       </p>
                     </div>
                   </div>
@@ -440,7 +541,7 @@ const Contact = () => {
                         d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                       />
                     </svg>
-                    Send Message
+                    {translations.submitBtn}
                   </button>
                 </form>
               </div>
