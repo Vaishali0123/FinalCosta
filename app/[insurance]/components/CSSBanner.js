@@ -51,7 +51,7 @@ const Banner = () => {
       style={{ backgroundImage: `url(${Bg.src})` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 rounded-[60px] z-[1]" />
+      <div className="absolute inset-0 bg-black/30 rounded-[30px] z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 w-full px-[8%] py-[5%] text-white flex flex-col items-start justify-center">

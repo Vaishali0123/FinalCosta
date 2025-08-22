@@ -204,7 +204,7 @@ const Header = () => {
           className={`duration-300 flex gap-5 ease-in-out ${
             menu
               ? "pn:max-sm:scale-0 pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 "
-              : " pn:max-sm:flex-col  flex  pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-5 dark:bg-[#000] pn:max-sm:border-b pn:max-sm:bg-[#fff] "
+              : " pn:max-sm:flex-col bg-white dark:border-gray-800  flex  pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-5 dark:bg-[#000] pn:max-sm:border-b pn:max-sm:bg-[#fff] "
           }`}
         >
           {navLinks.map(({ href, label, id }) =>
@@ -306,7 +306,7 @@ const Header = () => {
           <div className=" top-4 right-6  flex gap-2">
             <button
               onClick={() => setOpen(!open)}
-              className="px-4 py-2 w-[70px] flex  items-center justify-evenly gap-2 border text-slate-500 dark:text-white  font-medium rounded-full  transition"
+              className="px-4 py-2 w-[70px] flex   items-center justify-evenly gap-2 border text-slate-500 dark:text-white  font-medium rounded-full  transition"
             >
               <span>{currentLang.flag}</span>
               <span>{currentLang.code}</span>
@@ -317,7 +317,7 @@ const Header = () => {
 
             {/* Dropdown */}
             {open && (
-              <div className="absolute mt-2 top-16 w-52 bg-red-500 rounded-xl shadow-lg border z-50 overflow-hidden animate-fadeIn">
+              <div className="absolute mt-2 top-16 w-50 bg-white dark:bg-white/10 dark:border-gray-800 rounded-xl shadow-lg border z-00 overflow-hidden animate-fadeIn">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -325,7 +325,7 @@ const Header = () => {
                       setLanguage(lang.code);
                       setOpen(false);
                     }}
-                    className={`flex items-center gap-2 w-full text-left px-4 py-2 text-sm hover:bg-orange-50 transition ${
+                    className={`flex items-center gap-2 w-full dark:text-gray-100 text-left px-4 py-2 text-sm hover:dark:text-black hover:bg-orange-50 transition ${
                       currentLang === lang.code
                         ? "bg-orange-100 font-semibold text-orange-700"
                         : "text-gray-700"
