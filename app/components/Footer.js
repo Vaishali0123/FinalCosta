@@ -118,37 +118,6 @@ const Footer = () => {
     doTranslate();
   }, [language]);
 
-  // scrollTo({ top: 0, behavior: "smooth" });
-  // scrollTo({ top: 0, behavior: "smooth" });
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const formId = "123"; // Your WPForms newsletter form ID
-  //     const response = await fetch(
-  //       `https://admin.costaricaninsurance.com/wp-json/wpforms/v1/forms/${formId}/submissions`,
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           fields: {
-  //             1: email, // Your email field ID in the WPForms form
-  //           },
-  //         }),
-  //       }
-  //     );
-
-  //     if (!response.ok) throw new Error("Failed to subscribe");
-
-  //     setMessage("Thank you for subscribing!");
-  //     setEmail("");
-  //   } catch (err) {
-  //     console.error(err);
-  //     setMessage("Subscription failed. Please try again.");
-  //   }
-  // };
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
