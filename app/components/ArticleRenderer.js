@@ -176,7 +176,7 @@ export default function ArticleRenderer({ htmlContent }) {
             <div className="bg-white dark:bg-white/10 rounded-2xl p-4">
               <img
                 src={node.attribs.src}
-                alt={node.attribs.alt || "Article image"}
+                alt={node.attribs.alt || "Blog"}
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
             </div>
