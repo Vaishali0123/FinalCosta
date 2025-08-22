@@ -241,7 +241,7 @@ const Contact = () => {
               <div className="bg-white border dark:bg-white/10 dark:border-gray-800 border-slate-200 rounded-2xl border-l-4 border-l-[#f59f0a] hover:shadow-lg transition-all duration-300">
                 <div className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-accent/10 p-3 bg-[#fef6ea] rounded-lg ">
+                    <div className="bg-accent/10 p-3 bg-[#fef6ea] pn:max-ss:hidden rounded-lg ">
                       <svg
                         className="h-6 w-6 text-[#f59f0a] text-accent dark:text-yellow-400"
                         fill="none"
@@ -261,7 +261,7 @@ const Contact = () => {
                         {translations.emailSupportTitle ||
                           texts.emailSupportTitle}
                       </h3>
-                      <p className="text-muted-foreground mb-2 dark:text-gray-300">
+                      <p className="text-muted-foreground mb-2  dark:text-gray-300">
                         {translations.emailSupportDesc ||
                           texts.emailSupportDesc}
                       </p>

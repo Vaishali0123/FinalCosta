@@ -83,7 +83,7 @@ export default function ArticleRenderer({ htmlContent }) {
       if (node.name === "img") {
         return (
           <div className="relative mb-8">
-            <div className="bg-white dark:bg-white/10 rounded-2xl p-4">
+            <div className=" rounded-2xl p-4">
               <img
                 src={node.attribs.src}
                 alt={node.attribs.alt || "Blog"}

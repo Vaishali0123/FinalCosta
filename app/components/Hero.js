@@ -251,7 +251,7 @@ export default function Hero() {
                           title: stat?.title,
                           postid: stat?.id,
                           image: stat?.featuredImage?.node?.sourceUrl,
-                          // latestposts,
+                          latestposts,
                         })
                       );
                     }}
@@ -277,7 +277,7 @@ export default function Hero() {
                         className="object-cover w-full h-[29.5vh] opacity-100 rounded-[6.9%]"
                       />
                     </div>
-                    <div className="flex flex-grow flex-col dark:bg-[#171717]  bg-white rounded-3xl justify-between -mt-12 p-4">
+                    <div className="flex flex-grow flex-col dark:bg-[#000]  bg-white rounded-3xl justify-between -mt-12 p-4">
                       <h3 className="text-[16px]  h-[50px] font-semibold dark:text-white text-gray-800">
                         {stat?.title}
                       </h3>
