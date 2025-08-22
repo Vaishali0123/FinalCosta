@@ -300,14 +300,14 @@ const Page = () => {
 
         {/* Content */}
         {/* <div className="relative z-10 w-full px-[8%] py-[5%] text-white flex flex-col items-start justify-center">
-        <h1 className="font-[Marcellus] font-bold mb-3 max-w-[800px] leading-tight text-shadow-lg text-[clamp(1.5rem,4vw,3rem)]">
-          Efficient Rules to get best insurance
-        </h1>
-        <p className="text-[20px] max-w-[650px] mb-5 text-shadow">
-          Whether you&apos;re looking for pet insurance, health insurance, or
-          disability insurance, we&apos;ve got you covered.
-        </p>
-      </div> */}
+          <h1 className="font-[Marcellus] font-bold mb-3 max-w-[800px] leading-tight text-shadow-lg text-[clamp(1.5rem,4vw,3rem)]">
+            Efficient Rules to get best insurance
+          </h1>
+          <p className="text-[20px] max-w-[650px] mb-5 text-shadow">
+            Whether you&apos;re looking for pet insurance, health insurance, or
+            disability insurance, we&apos;ve got you covered.
+          </p>
+        </div> */}
       </div>
       {/* <section className="relative scale-95  rounded-3xl bg-gradient-to-r from-gray-100 to-gray-200  overflow-hidden">
         <div className="container mx-auto px-6 py-20">
@@ -332,9 +332,8 @@ const Page = () => {
                   alt={title}
                   className="w-full h-64 object-cover rounded-lg mb-4"
                 />
-                
               </div>
-            
+
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-red-400 rounded-full"></div>
               <div className="absolute top-1/2 -left-6 w-6 h-6 bg-yellow-400 rounded-full"></div>
               <div className="absolute -bottom-6 left-1/3 w-4 h-4 bg-blue-400 rounded-full"></div>

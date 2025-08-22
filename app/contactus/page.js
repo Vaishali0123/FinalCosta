@@ -76,7 +76,7 @@ const Contact = () => {
       )}
 
       {/* Header Section */}
-      <div className="bg-gradient-to-r h-[300px] bg-center from-primary to-accent py-16 dark:from-white/5 dark:to-white/10">
+      <div className="bg-gradient-to-r h-[300px]  bg-center from-primary to-accent py-16 dark:from-white/5 dark:to-white/10">
         <div className="container mx-auto px-4">
           <div className="text-center text-primary-foreground dark:text-white">
             <span className="inline-flex items-center gap-1 bg-white text-[#171717] border border-white/30 hover:bg-white/30 px-3 py-1 rounded-full text-sm font-medium mb-4">
@@ -106,7 +106,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="  sm:px-6 lg:px-8   px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8">
@@ -183,10 +183,10 @@ const Contact = () => {
                       <p className="text-muted-foreground mb-2 dark:text-gray-300">
                         Send us an email
                       </p>
-                      <p className="font-medium text-[#f59f0a] text-primary dark:text-yellow-400">
+                      <p className="font-medium text-[#f59f0a] pn:max-ss:text-[13px]  text-primary  dark:text-yellow-400">
                         support@costaricainsurance.com
                       </p>
-                      <p className="font-medium text-[#f59f0a] text-primary dark:text-yellow-400">
+                      <p className="font-medium text-[#f59f0a]  pn:max-ss:text-[13px] text-primary dark:text-yellow-400">
                         claims@costaricainsurance.com
                       </p>
                     </div>

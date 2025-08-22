@@ -165,36 +165,36 @@ const Footer = () => {
             <div className="text-white dark:text-gray-900  flex-1 min-w-0 text-center md:text-left">
               <h2 className="text-[clamp(1.25rem,4vw,2rem)]  font-[Marcellus] font-bold leading-tight mb-2">
                 {/* Subscribe our newsletter */}
-                {translations.heading}
+                {translations.heading || texts.heading}
               </h2>
               <p className="text-[clamp(0.85rem,2.5vw,0.95rem)] opacity-90 leading-relaxed">
-                {translations.subHeading}
+                {translations.subHeading || texts.subHeading}
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-white dark:text-gray-900 flex-1">
               <div className="flex flex-col items-center text-center bg-[#14213d]/20  backdrop-blur-sm rounded-2xl p-4">
                 <h3 className="font-semibold text-lg">
-                  {translations.healthTitle}
+                  {translations.healthTitle || texts.healthTitle}
                 </h3>
                 <p className="text-[12px] mt-2  opacity-80">
-                  {translations.healthDesc}
+                  {translations.healthDesc || texts.healthDesc}
                 </p>
               </div>
               <div className="flex flex-col items-center text-center bg-[#14213d]/20 backdrop-blur-sm rounded-2xl p-4">
                 <h3 className="font-semibold text-lg">
                   {" "}
-                  {translations.homeTitle}
+                  {translations.homeTitle || texts.homeTitle}
                 </h3>
                 <p className="text-[12px] mt-2 opacity-80">
-                  {translations.homeDesc}
+                  {translations.homeDesc || texts.homeDesc}
                 </p>
               </div>
               <div className="flex flex-col items-center text-center bg-[#14213d]/20 backdrop-blur-sm rounded-2xl p-4">
                 <h3 className="font-semibold text-lg">
-                  {translations.vehicleTitle}
+                  {translations.vehicleTitle || texts.vehicleTitle}
                 </h3>
                 <p className="text-[12px] mt-2  opacity-80">
-                  {translations.vehicleDesc}
+                  {translations.vehicleDesc || texts.vehicleDesc}
                 </p>
               </div>
             </div>
@@ -291,7 +291,7 @@ const Footer = () => {
             <div className="flex flex-1 flex-wrap gap-8 p-4 justify-between min-w-[300px]">
               <div>
                 <h4 className="font-bold text-gray-900 dark:text-white font-[Marcellus] border-b border-[#B79C75] tracking-wider text-sm">
-                  {translations.quickLinks}
+                  {translations.quickLinks || "Quick Links"}
                 </h4>
                 <ul className="mt-4 space-y-3">
                   <li>
@@ -299,7 +299,7 @@ const Footer = () => {
                       href="/about-us"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.about}
+                      {translations.about || "About Us"}
                     </Link>
                   </li>
                   <li>
@@ -307,7 +307,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.insurance}
+                      {translations.insurance || "Insurance"}
                     </Link>
                   </li>
 
@@ -316,7 +316,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.pages}
+                      {translations.pages || "Pages"}
                     </Link>
                   </li>
 
@@ -340,7 +340,7 @@ const Footer = () => {
                       href="/contactus"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.contactUs}
+                      {translations.contactUs || "Contact Us"}
                     </Link>
                   </li>
                   <li>
@@ -348,7 +348,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.privacy}
+                      {translations.privacy || "Privacy Policy"}
                     </Link>
                   </li>
                   <li>
@@ -356,14 +356,14 @@ const Footer = () => {
                       href="/"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.terms}
+                      {translations.terms || "Terms & Conditions"}
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold text-gray-900 dark:text-white  font-[Marcellus]  border-b border-[#B79C75]  tracking-wider text-sm">
-                  {translations.topCategories}
+                  {translations.topCategories || "Top Categories"}
                 </h4>
                 <ul className="mt-4 space-y-3">
                   <li>
@@ -371,7 +371,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.life}
+                      {translations.life || "Life Insurance"}
                     </Link>
                   </li>
                   <li>
@@ -379,7 +379,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.vehicle}
+                      {translations.vehicle || "Vehicle Insurance"}
                     </Link>
                   </li>
                   <li>
@@ -387,7 +387,7 @@ const Footer = () => {
                       href="#"
                       className="text-gray-700 dark:text-gray-200 hover:text-amber-500 font-medium"
                     >
-                      {translations.health}
+                      {translations.health || "Health Insurance"}
                     </Link>
                   </li>
                 </ul>
@@ -398,7 +398,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 py-6 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-200">
-          <p className="text-center sm:text-left">{translations.copyright}</p>
+          <p className="text-center sm:text-left">
+            {translations.copyright ||
+              "Copyright © 2025 CostaRican Insurance -- All rights reserved."}
+          </p>
           <button
             onClick={scrollToTop}
             className="mt-4 sm:mt-0 h-9 w-9 rounded-3xl bg-[#1E3161] dark:bg-gray-100 text-white dark:text-gray-900 flex items-center justify-center hover:bg-blue-800 transition-colors"
