@@ -484,6 +484,7 @@ const HeaderPage = () => {
   const [insuranceTypes, setInsuranceTypes] = useState([]);
   const [mortgagesdata, setMortgagesdata] = useState([]);
   const [brandname, setBrandname] = useState("Costa Rican Insurance");
+
   const languages = [
     { code: "en", label: "English", flag: "🇺🇸" },
     { code: "hi", label: "हिंदी", flag: "🇮🇳" },
@@ -600,6 +601,7 @@ const HeaderPage = () => {
       const contact = await translateText("Contact", language);
       const brand = await translateText(brandname, language);
       setBrandname(brand);
+
       setNavLinks([
         { href: "/", label: home, id: "home" },
         { href: "/", label: insurance, id: "insurance" },
@@ -607,6 +609,22 @@ const HeaderPage = () => {
         { href: "../about-us", label: aboutus, id: "about" },
         { href: "/contactus", label: contact, id: "contact" },
       ]);
+      const translated = await Promise.all(
+        insuranceTypes.map(async (type) => ({
+          ...type,
+          name: await translateText(type.name, language),
+          posts: {
+            ...type.posts,
+            nodes: await Promise.all(
+              type.posts.nodes.map(async (post) => ({
+                ...post,
+                title: await translateText(post.title, language),
+              }))
+            ),
+          },
+        }))
+      );
+      setInsuranceTypes(translated);
     }
 
     doTranslation();
