@@ -293,7 +293,10 @@ const Insurance = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto  flex w-full max-w-6xl sm:max-lg:items-center sm:max-lg:justify-center sm:max-lg:gap-20  flex-col md:flex-row gap-10 px-4 sm:px-6 lg:px-8 items-start">
+        {/* <div className="mx-auto   flex w-full max-w-6xl sm:max-lg:items-center 
+        sm:max-lg:justify-center sm:max-lg:gap-20  flex-col md:flex-row gap-10 
+        px-4 sm:px-6 lg:px-8 items-start"> */}
+        <div className="mx-auto flex w-full max-w-6xl flex-col md:flex-row gap-10 px-4 sm:px-6 lg:px-8 items-center md:items-start md:justify-between">
           <div className=" flex gap-10">
             {/* Left - Icons */}
             <InsuranceMainCategories
@@ -329,9 +332,9 @@ const Insurance = () => {
             </div>
           </div>
           {/* Right - Image */}
-          <div
+          {/* <div
             key={imageAnimationKey}
-            className="flex-1 max-w-lg relative image-content-animate"
+            className="flex-1 max-w-md    relative image-content-animate"
           >
             <div className="absolute -top-[70px] pn:max-sm:hidden -left-[50px] w-[376px] h-[277px] bg-orange-100/50 rounded-3xl z-0"></div>
             <div className="relative overflow-hidden h-[300px] pn:max-sm:w-[90vw] rounded-3xl bg-white shadow-xl z-10">
@@ -343,6 +346,26 @@ const Insurance = () => {
               />
             </div>
             <div className="absolute -bottom-[100px] pn:max-sm:hidden -right-[100px] w-[376px] h-[277px] border-2 border-orange-100/90 rounded-3xl z-0"></div>
+          </div> */}
+          <div
+            key={imageAnimationKey}
+            className="flex-1 w-full md:max-w-md relative image-content-animate flex justify-center"
+          >
+            {/* Top decoration (only show on md+) */}
+            <div className="hidden md:block absolute -top-[70px] -left-[50px] w-[376px] h-[277px] bg-orange-100/50 rounded-3xl z-20"></div>
+
+            {/* Image */}
+            <div className="relative overflow-hidden h-[300px] w-full sm:w-[90vw] md:w-full rounded-3xl bg-white shadow-xl z-10">
+              <img
+                src={rawData?.image}
+                alt={data?.title}
+                className="w-full h-full object-cover rounded-2xl"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Bottom decoration (only show on md+) */}
+            <div className="hidden md:block absolute -bottom-[100px] -right-[100px] w-[376px] h-[277px] border-2 border-orange-100/90 rounded-3xl z-0"></div>
           </div>
         </div>
       </section>
