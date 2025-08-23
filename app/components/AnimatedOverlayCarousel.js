@@ -102,7 +102,7 @@ const AnimatedOverlayCarousel = () => {
 
   return (
     <div
-      className="relative pn:max-lg:scale-75 w-full max-w-sm md:max-w-none md:w-[20.6vw] h-[48vh] md:h-[52vh] mb-10 sm:mb-10 md:mb-0 md:mt-0 min-[1101px]:ml-[13vw]"
+      className="relative pn:max-lg:scale-75 z-0 w-full max-w-sm md:max-w-none md:w-[20.6vw] h-[48vh] md:h-[52vh] mb-10 sm:mb-10 md:mb-0 md:mt-0 min-[1101px]:ml-[13vw]"
       ref={ref}
     >
       {images.map((image, index) => (

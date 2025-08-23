@@ -293,7 +293,7 @@ const Insurance = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto  flex w-full max-w-6xl sm:max-lg:items-center sm:max-lg:justify-center sm:max-lg:gap-20  flex-col lg:flex-row gap-10 px-4 sm:px-6 lg:px-8 items-start">
+        <div className="mx-auto  flex w-full max-w-6xl sm:max-lg:items-center sm:max-lg:justify-center sm:max-lg:gap-20  flex-col md:flex-row gap-10 px-4 sm:px-6 lg:px-8 items-start">
           <div className=" flex gap-10">
             {/* Left - Icons */}
             <InsuranceMainCategories

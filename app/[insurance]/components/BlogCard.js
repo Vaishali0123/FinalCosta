@@ -158,12 +158,12 @@ const BlogCard = ({
       }}
       href={{
         pathname: "/blog",
-        query: {
-          content: content,
-          title: title,
-          postid: postid,
-          image: image,
-        },
+        // query: {
+        //   content: content,
+        //   title: title,
+        //   postid: postid,
+        //   image: image,
+        // },
       }}
       style={cardStyle}
       className="dark:bg-white/10 bg-white "
@@ -270,7 +270,6 @@ const BlogCard = ({
         <div
           href="https://admin.costaricaninsurance.com/understanding-medical-insurance-a-comprehensive-guide/"
           style={{
-            color: "#111827",
             fontWeight: 500,
             textDecoration: "underline",
             background: "transparent",
@@ -279,7 +278,7 @@ const BlogCard = ({
             fontSize: "14px",
             padding: 0,
           }}
-          className="dark:text-white"
+          className="dark:text-white text-black "
         >
           {/* Read more */}
           {translations.readMore}

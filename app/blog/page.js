@@ -248,7 +248,7 @@ const Page = () => {
     <div className="min-h-screen bg-white dark:bg-black">
       {/* Hero Section */}
       <div className="max-w-7xl  mx-auto  px-4 py-6">
-        {loading ? (
+        {/* {loading ? (
           <div className="relative flex dark:bg-white/10 bg-black/10  animate-pulse items-center h-[50vh] min-h-[260px] max-h-[450px] mb-8 rounded-[30px] overflow-hidden bg-cover bg-center bg-no-repeat"></div>
         ) : (
           <div
@@ -259,15 +259,56 @@ const Page = () => {
               <h1 className="font-[Marcellus] text-shadow font-bold mb-3 max-w-[800px] leading-tight text-shadow-lg text-[clamp(1.5rem,4vw,3rem)]">
                 {title || ""}
               </h1>
-              {/* <p className="text-[20px] max-w-[650px] mb-5 text-shadow">
-              Whether you&apos;re looking for pet insurance, health insurance,
-              or disability insurance, we&apos;ve got you covered.
-            </p> */}
+             
             </div>
           </div>
-        )}
-      </div>
+        )} */}
+        {/* Overlay */}
+        {/* <div className="absolute inset-0 bg-black/30 z-[1]" /> */}
 
+        {/* Content */}
+        {/* <div className="relative z-10 w-full px-[8%] py-[5%] text-white flex flex-col items-start justify-center">
+          <h1 className="font-[Marcellus] font-bold mb-3 max-w-[800px] leading-tight text-shadow-lg text-[clamp(1.5rem,4vw,3rem)]">
+            Efficient Rules to get best insurance
+          </h1>
+          <p className="text-[20px] max-w-[650px] mb-5 text-shadow">
+            Whether you&apos;re looking for pet insurance, health insurance, or
+            disability insurance, we&apos;ve got you covered.
+          </p>
+        </div> */}
+      </div>
+      <section className="relative scale-95  rounded-3xl dark:from-white/10 dark:to-white/20 bg-gradient-to-r from-gray-100 to-gray-200  overflow-hidden">
+        <div className="container mx-auto px-6 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 leading-tight mb-6">
+                {title}
+                <br />
+                {/* <span className="text-blue-600">
+                  ORGANIZE YOUR WORKING PLACE
+                </span> */}
+              </h2>
+              {/* <p className="text-gray-600 text-lg mb-8">
+                Relationship tips couples therapists are giving all the time
+              </p> */}
+            </div>
+
+            <div className="relative">
+              <div className="bg-white dark:bg-white/10 rounded-2xl h-80 shadow-lg">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover rounded-lg mb-4"
+                />
+              </div>
+
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-red-400 rounded-full"></div>
+              <div className="absolute top-1/2 -left-6 w-6 h-6 bg-yellow-400 rounded-full"></div>
+              <div className="absolute -bottom-6 left-1/3 w-4 h-4 bg-blue-400 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Main Content */}
       <main className="container  mx-auto pn:max-sm:px-0 px-6 py-16">
         <div className="flex sm:max-md:flex-wrap  gap-4">

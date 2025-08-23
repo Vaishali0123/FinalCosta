@@ -30,7 +30,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         ></link>
         <LanguageProvider>
-          <div className="h-screen w-screen dark:bg-black overflow-y-scroll">
+          <div
+            id="main-scroll"
+            className="h-screen w-screen dark:bg-black overflow-y-scroll"
+          >
             <Header />
             {children}
             <Footer />

@@ -145,7 +145,7 @@ export default function Page() {
           {randomTop === 1 && <HeadSection />}
           {randomTop === 2 && <Banner />}
 
-          <div className="grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-1">
+          <div className="grid  grid-cols-1 md:grid-cols-3 sm:grid-cols-2  gap-1">
             {loading
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div

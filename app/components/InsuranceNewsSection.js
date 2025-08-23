@@ -135,7 +135,7 @@ export default function InsuranceNewsSection({
   }
   return (
     <>
-      <div className="py-8 sm:py-24    sm:h-[100vh] px-4 relative">
+      <div className="py-8 sm:py-24   sm:h-[170vh] lg:h-[100vh] px-4 relative">
         {/* Background glow */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-orange-200/40 rounded-full opacity-50 blur-3xl" />
         <div className="max-w-6xl mx-auto">
@@ -162,7 +162,7 @@ export default function InsuranceNewsSection({
                       className="absolute object-cover inset-0 w-full h-full"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-800 dark:text-gray-200 text-gray-500 text-sm">
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-white/10 dark:text-gray-200 text-gray-500 text-sm">
                       No image available
                     </div>
                   )}

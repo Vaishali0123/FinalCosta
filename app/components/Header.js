@@ -186,7 +186,7 @@ const Header = () => {
           <Image src={Logo} alt="logo" width={50} height={50} />
           <div className="flex-shrink-0 ">
             <span
-              className={`pn:max-sm:hidden ${
+              className={`pn:max-sm:text-sm ${
                 open1
                   ? "pn:max-sm:hidden text-lg dark:text-white sm:text-xl md:text-[1.67rem] font-normal text-[#121212]"
                   : "text-lg dark:text-white sm:text-xl md:text-[1.67rem] font-normal text-[#121212]"
@@ -204,7 +204,7 @@ const Header = () => {
           className={`duration-300 flex gap-5 ease-in-out ${
             menu
               ? "pn:max-sm:scale-0 pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 "
-              : " pn:max-sm:flex-col bg-white dark:border-gray-800  flex  pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 pn:max-sm:z-10 pn:max-sm:p-4 gap-5 dark:bg-[#000] pn:max-sm:border-b pn:max-sm:bg-[#fff] "
+              : " pn:max-sm:flex-col bg-white dark:border-gray-800  flex  pn:max-sm:w-full pn:max-sm:absolute pn:max-sm:top-[100%] pn:max-sm:left-0 pn:max-sm:z-[9999] pn:max-sm:p-4 gap-5 dark:bg-[#000] pn:max-sm:border-b pn:max-sm:bg-[#fff] "
           }`}
         >
           {navLinks.map(({ href, label, id }) =>
@@ -256,6 +256,7 @@ const Header = () => {
                               "selectedType",
                               JSON.stringify(type)
                             );
+                            setMenu(!menu);
                             router.push(`/${type?.slug}`);
                           }}
                           onMouseEnter={() => setActiveType(i)}
@@ -292,6 +293,9 @@ const Header = () => {
               </div>
             ) : (
               <Link
+                onClick={() => {
+                  setMenu(!menu);
+                }}
                 key={label}
                 href={href}
                 className="text-gray-600 dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] hover:dark:text-[#fff] transition-colors "
@@ -300,6 +304,12 @@ const Header = () => {
               </Link>
             )
           )}
+          <button
+            onClick={toggleTheme}
+            className="text-gray-600 flex self-start sm:hidden dark:text-[#fff] font-[Marcellus] hover:border-orange-500 font-semibold border-transparent duration-300 border-b-2 text-[14px] hover:text-[#171717] hover:dark:text-[#fff] transition-colors "
+          >
+            Change Theme
+          </button>
         </div>
         {/* lang/darkMode/search  */}
         <div className="flex gap-4 items-center">
@@ -317,7 +327,7 @@ const Header = () => {
 
             {/* Dropdown */}
             {open && (
-              <div className="absolute mt-2 top-16 w-50 bg-white dark:bg-white/10 dark:border-gray-800 rounded-xl shadow-lg border z-00 overflow-hidden animate-fadeIn">
+              <div className="absolute mt-2 top-16 w-50 bg-white dark:bg-black dark:border-gray-800 rounded-xl shadow-lg border z-[100000] overflow-hidden animate-fadeIn">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -325,7 +335,7 @@ const Header = () => {
                       setLanguage(lang.code);
                       setOpen(false);
                     }}
-                    className={`flex items-center gap-2 w-full dark:text-gray-100 text-left px-4 py-2 text-sm hover:dark:text-black hover:bg-orange-50 transition ${
+                    className={`flex items-center gap-2 w-full dark:text-gray-100 text-left px-4 py-2 text-sm hover:dark:text-black hover:dark:bg-white/50 hover:bg-orange-50 transition ${
                       currentLang === lang.code
                         ? "bg-orange-100 font-semibold text-orange-700"
                         : "text-gray-700"

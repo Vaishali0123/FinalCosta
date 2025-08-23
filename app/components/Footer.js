@@ -119,7 +119,8 @@ const Footer = () => {
   }, [language]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const el = document.getElementById("main-scroll");
+    el?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -373,6 +374,7 @@ const Footer = () => {
           </p>
           <button
             onClick={scrollToTop}
+            type="button"
             className="mt-4 sm:mt-0 h-9 w-9 rounded-3xl bg-[#1E3161] dark:bg-gray-100 text-white dark:text-gray-900 flex items-center justify-center hover:bg-blue-800 transition-colors"
             aria-label="Back to top"
           >

@@ -102,11 +102,11 @@ const PopularBlogs = ({ mortgagesdata }) => {
       <div className="flex flex-col lg:flex-row gap-8 items-center justify-center w-full">
         {/* Left Column: One Tall Card */}
         <div className="w-full lg:w-2/5">
-          <div className="flex flex-col dark:bg-[#171717] bg-gray-50 rounded-3xl overflow-hidden hover:scale-105 duration-150 lg:h-[550px] w-full">
+          <div className="flex flex-col dark:bg-[#171717] bg-gray-50  rounded-3xl overflow-hidden hover:scale-105 duration-150 lg:h-[550px] w-full">
             <img
               src={displayData?.[0]?.featuredImage?.node?.sourceUrl}
               alt={displayData?.[0]?.title}
-              className="w-full dark:text-gray-300 h-[200px] lg:h-2/3 object-cover"
+              className="w-full dark:text-gray-300 h-[200px]  rounded-3xl lg:h-2/3 object-cover"
             />
             <div className="p-4 flex flex-col justify-between flex-grow">
               <h3 className="text-[24px] lg:text-[28px] font-[marcellus] font-bold text-gray-900 dark:text-gray-100 mb-3 break-words">
